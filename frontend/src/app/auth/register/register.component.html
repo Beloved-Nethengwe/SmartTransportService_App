@@ -1,0 +1,97 @@
+
+<div  style="margin-top: 5vh;overflow-y: scroll; ">
+    <form (ngSubmit)="submit()" class="p-4 border m-auto " #myForm="ngForm" style=" width: 90vw; border-radius:27px;  ">
+        <h1 class="text-center text-xl"><b>Sign up to SmartTransport Kids</b></h1>
+        <div class="my-5 w-full">
+            <label for="firstname">First Name</label>
+            <input type="firstname" id="firstname"
+            class="p-2  rounded w-full border"
+            placeholder="First Name" [(ngModel)]="form.Name"
+            name="firstname" required #firstname="ngModel">
+        </div>
+        <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="bg-red-300 text-red-800 rounded">
+        firstname field must be valid
+    </div>
+        <div class="my-5 w-full">
+        <label for="lastname">Last Name</label>
+        <input type="lastname" id="lastname"
+            class="p-2  rounded w-full border"
+            placeholder="Last Name" [(ngModel)]="form.Surname"
+            name="lastname" required #lastname="ngModel">
+        </div>
+        <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="bg-red-300 text-red-800 rounded">
+        lastname field must be valid
+        </div>
+        <div class="my-5 w-full">
+        <label for="identityNumber">Identity Number </label> <span></span>
+        <input type="identityNumber" id="identityNumber"
+            class="p-2  rounded w-full border" 
+            placeholder="identity Number"  [(ngModel)]="form.IDNumber"
+            name="identityNumber" required #identity="ngModel">
+        </div>
+        <div *ngIf="identity.invalid && (identity.dirty || identity.touched)" class="bg-red-300 text-red-800 rounded">
+        identity field must be valid
+        </div>
+        <div class="my-5 w-full">
+        <label for="email">Email </label> <span></span>
+        <input type="email" id="email"
+            class="p-2  rounded w-full border" 
+            placeholder="Email"  [(ngModel)]="form.Email"
+            name="email" required #email="ngModel">
+        </div>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="bg-red-300 text-red-800 rounded">
+        email field must be valid
+        </div>
+        <div class="my-5 w-full">
+            <label for="address">Address</label> <span></span>
+            <input type="address" id="address"
+            class="p-2  rounded w-full border" 
+            placeholder="Address" [(ngModel)]="form.Address"
+            name="address" required #address="ngModel">
+        </div>
+        <div *ngIf="address.invalid && (address.dirty || address.touched)" class="bg-red-300 text-red-800 rounded">
+        address field must be valid
+        </div>
+        <div class="my-5 w-full">
+        <label for="cellNumber">Cell Number</label> <span></span>
+        <input type="cellNumber" id="cellNumber"
+            class="p-2  rounded w-full border" 
+            placeholder="cellNumber" [(ngModel)]="form.CellphoneNumber"
+            name="cellNumber" required #cellNumber="ngModel">
+        </div>
+        <div *ngIf="cellNumber.invalid && (cellNumber.dirty || cellNumber.touched)" class="bg-red-300 text-red-800 rounded">
+        cellNumber field must be valid
+        </div>
+        <div class="my-5 w-full">
+        <label for="password">Password </label> <span></span>
+        <input type="password" id="password"
+            class="p-2  rounded w-full border" 
+            placeholder="Password" [(ngModel)]="form.Password"
+            name="password" required #password="ngModel">
+        </div>
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="bg-red-300 text-red-800 rounded">
+        password field must be valid
+        </div>
+        <div class="my-5 w-full">
+        <label for="confirmPassword">Confirm Password </label> <span></span>
+        <input type="confirmPassword" id="confirmPassword"
+            class="p-2  rounded w-full border" 
+            placeholder="Confirm Password" [(ngModel)]="form.conPassword"
+            name="confirmPassword" required #conPass="ngModel">
+        </div>
+        <div *ngIf="conPass.invalid && (conPass.dirty || conPass.touched)" class="bg-red-300 text-red-800 rounded">
+        confirmPass field must be valid
+        </div>
+        <div class="my-5 w-full">
+        <button [disabled]="myForm.form.invalid" type="submit"  class="p-2 w-full rounded-full bg-blue-400 rounded text-white" style="background-color: #3D6CE4; font-weight: bolder;">
+            <ng-container *ngIf="isLoading()">Loading...</ng-container>
+            <ng-container *ngIf="!isLoading()">Login</ng-container>
+            
+        </button>
+        </div>    
+    </form>
+</div>
+<div class=" border m-auto " style="padding: 1.3em; width: 90vw; border-radius:27px; margin-top: 5vh;  text-align: center;">
+    Have an account?<span style="color: blue; " ><b><a routerLink="/login">Sign in</a></b></span>
+</div>
+
