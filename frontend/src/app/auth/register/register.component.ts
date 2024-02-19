@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { User } from '../../types/Auth';
+import { User } from '../../types/Auth';;
 import { ParentApiService } from '../../services/parent-api.service';
 
 
@@ -14,7 +14,7 @@ export class RegisterComponent {
 
   constructor(private router:Router, private authService: AuthService, private parentApiService: ParentApiService){}
 
-  form:User={
+  form: User ={
     Name: '',
     Surname: '',
     IDNumber: '',
@@ -37,10 +37,10 @@ export class RegisterComponent {
     return this.authService.isLoading;
   }
 
-  // addParent(){
-  //   this.parentApiService.addParent(this.form)
-  //   .subscribe( (data: any)=>{
-  //     console.log(data); 
-  //   })
-  // }
+  addParent(){
+    this.parentApiService.addParent(this.form)
+    .subscribe( (data: any)=>{
+      console.log(data); 
+    })
+  }
 }

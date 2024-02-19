@@ -1,6 +1,6 @@
 
 <div  style="margin-top: 5vh;overflow-y: scroll; ">
-    <form (ngSubmit)="submit()" class="p-4 border m-auto " #myForm="ngForm" style=" width: 90vw; border-radius:27px;  ">
+    <form (ngSubmit)="[submit(),addParent()]" class="p-4 border m-auto " #myForm="ngForm" style=" width: 90vw; border-radius:27px;  ">
         <h1 class="text-center text-xl"><b>Sign up to SmartTransport Kids</b></h1>
         <div class="my-5 w-full">
             <label for="firstname">First Name</label>
