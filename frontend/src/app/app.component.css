@@ -1,0 +1,15 @@
+#content{
+    max-width: 98vw;
+}
+
+#container{
+    display: flex;
+    max-height: 100vh;
+    max-width: 98vw;
+}
+
+a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from parent element */
+    cursor: pointer; /* Show pointer cursor on hover */
+}

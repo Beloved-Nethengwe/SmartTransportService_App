@@ -2,15 +2,18 @@ import { Injectable } from '@angular/core';
 import { LoginForm, User } from '../types/Auth';
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword ,signOut} from 'firebase/auth';
 import {  Router } from '@angular/router';
+import { ParentApiService } from './parent-api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
   isAuthenticated:boolean=false;
   isLoading:boolean=false;
   passwordMatch:boolean =true;
-  constructor(private router :Router) { }
+  userUuid:Object={};
+  constructor(private router :Router, private parentApiService: ParentApiService) { }
 
   login(form: LoginForm){
     if (this.isLoading) return;
@@ -20,9 +23,13 @@ export class AuthService {
     this.isLoading=true;
     const auth = getAuth();
     signInWithEmailAndPassword(auth, form.email, form.password)
-    .then((userCredential:any) => {
+    .then((userCredential:Object) => {
     // Signed in 
-    console.log(userCredential);
+    console.log("uuid :",userCredential);
+    this.userUuid=userCredential;
+    
+    const currUser =auth.currentUser;
+    console.log(currUser?.uid);
     
     this.isAuthenticated = true;
     
@@ -35,7 +42,8 @@ export class AuthService {
       this.isLoading=false;
     });
   }
-
+  
+  
   register(form: User){
     if (this.isLoading) return;
     
@@ -59,6 +67,31 @@ export class AuthService {
   this.isLoading=false;
     });
   }
+  
+  async registerAndGetUid(form:User){
+    const auth = getAuth();
+    try {
+      const userCredential= await createUserWithEmailAndPassword(auth, form.Email, form.Password)
+      if (userCredential && userCredential.user) {
+        const uid = userCredential.user.uid;
+        form.ID = uid;
+        console.log("form with guid",form);
+        this.parentApiService.addParent(form)
+        .subscribe( (data: any)=>{
+        console.log("this is data uid",data); 
+        })
+        
+      }
+
+      
+    } catch (error:any) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorMessage);
+      
+    }
+
+  }
 
   logout(){
 
@@ -71,4 +104,6 @@ export class AuthService {
   // An error happened.
     });
   }
+
 }
+

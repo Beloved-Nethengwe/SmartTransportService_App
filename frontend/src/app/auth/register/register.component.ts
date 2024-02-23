@@ -11,10 +11,11 @@ import { ParentApiService } from '../../services/parent-api.service';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-
-  constructor(private router:Router, private authService: AuthService, private parentApiService: ParentApiService){}
+ showDriverForm: boolean = true;
+constructor(private router:Router, private authService: AuthService, private parentApiService: ParentApiService){}
 
   form: User ={
+    ID: '',
     Name: '',
     Surname: '',
     IDNumber: '',
@@ -26,11 +27,20 @@ export class RegisterComponent {
 
   }
 
+
+
+  toggleForm() {
+    this.showDriverForm = !this.showDriverForm;
+  }
+  // submit(){
+  //   this.authService.register(this.form)
+  // }
+
   submit(){
-    this.authService.register(this.form)
+    this.authService.registerAndGetUid(this.form)
   }
   navigateToSignIn() {
-     this.router.navigate(['/login'])
+    this.router.navigate(['/login'])
   }
 
   isLoading(){
