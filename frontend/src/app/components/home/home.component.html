@@ -4,3 +4,74 @@
     <strong>Ready for an app</strong>
     <button (click)="logout()">Logout</button>
   </div>
+
+  <button
+  size="m"
+  tuiButton
+  tuiHint="Some text"
+  tuiHintDirection="top"
+  type="button"
+  (click)="showDialog()"
+>
+  Show
+</button>
+<ng-template
+  let-observer
+  [tuiDialogOptions]="{label: 'Add A Child', size: 's'}"
+  [(tuiDialog)]="open"
+>
+  <form #myForm ="ngForm" (ngSubmit)="[observer.complete(),onSubmitForNewChild()]">
+
+      <div class="my-5 w-full">
+        <label for="name">Name</label>
+        <input type="name" id="name"
+        class="p-2  rounded w-full border"
+        placeholder="Name" [(ngModel)]="form.Name"
+        name="name" #name="ngModel" required> 
+    </div> 
+    <div class="my-5 w-full">
+        <label for="surname">Surname</label>
+        <input type="surname" id="surname"
+        class="p-2  rounded w-full border"
+        placeholder="Surname " [(ngModel)]="form.Surname"
+        name="surname" #surname="ngModel" required> 
+    </div>
+    <div class="my-5 w-full">
+      <label for="allergy">Allergy</label>
+      <input type="allergy" id="allergy"
+      class="p-2  rounded w-full border"
+      placeholder="e.g (Allergic to Grass) " [(ngModel)]="form.Allergy"
+      name="allergy" #allergy="ngModel" required> 
+    </div>
+    <div class="my-5 w-full">
+      <label for="emergency">Emergency Contact</label>
+      <input type="emergency" id="emergency"
+      class="p-2  rounded w-full border"
+      placeholder="e.g (0825583303) " [(ngModel)]="form.EmergContact"
+      name="emergency" #emergencyContact="ngModel" required> 
+    </div> 
+    <div class="my-5 w-full">
+      <label for="pickUp">Pick Up</label>
+      <input type="emergency" id="pickUp"
+      class="p-2  rounded w-full border"
+      placeholder="e.g (0825583303) " [(ngModel)]="form.PickUp"
+      name="pickUp" #pickUp="ngModel" required> 
+    </div> 
+    <div class="my-5 w-full">
+      <label for="destination">destination</label>
+      <input type="destination" id="destination"
+      class="p-2  rounded w-full border"
+      placeholder="Destination " [(ngModel)]="form.Destination"
+      name="destination" #destination="ngModel" required> 
+    </div>
+    <p>
+      <button
+        tuiButton
+        [disabled]="myForm.form.invalid"
+          type="submit"  class="p-2 w-full rounded-full bg-blue-400 rounded text-white" style="background-color: #3D6CE4; font-weight: bolder;"
+          >
+            Add Child
+    </button>
+    </p>
+  </form>
+</ng-template>

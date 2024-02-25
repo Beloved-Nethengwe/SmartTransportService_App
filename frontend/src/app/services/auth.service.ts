@@ -13,7 +13,8 @@ export class AuthService {
   isLoading:boolean=false;
   passwordMatch:boolean =true;
   userUuid:Object={};
-  constructor(private router :Router, private parentApiService: ParentApiService) { }
+  public uuiForChild:any;
+  constructor(private router :Router, private parentApiService: ParentApiService,) { }
 
   login(form: LoginForm){
     if (this.isLoading) return;
@@ -29,7 +30,7 @@ export class AuthService {
     this.userUuid=userCredential;
     
     const currUser =auth.currentUser;
-    console.log(currUser?.uid);
+    this.uuiForChild=currUser?.uid;
     
     this.isAuthenticated = true;
     

@@ -47,10 +47,10 @@ constructor(private router:Router, private authService: AuthService, private par
     return this.authService.isLoading;
   }
 
-  addParent(){
-    this.parentApiService.addParent(this.form)
-    .subscribe( (data: any)=>{
-      console.log(data); 
-    })
-  }
+  // addParent(){
+  //   this.parentApiService.addParent(this.form)
+  //   .subscribe( (data: any)=>{
+  //     console.log(data); 
+  //   })
+  // }
 }
