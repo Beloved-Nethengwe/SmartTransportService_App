@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
 
     console.log('uuid along with child' ,this.form.ParentID);
     console.log('formData' ,this.form);
-   
+  
     this.childApiService.addChild(this.form)
     .subscribe(data=>{
       console.log('DATA',data);
