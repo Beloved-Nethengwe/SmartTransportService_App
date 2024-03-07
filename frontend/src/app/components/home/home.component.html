@@ -1,10 +1,18 @@
 <p>home works!</p>
-
 <div id="container">
-    <strong>Ready for an app</strong>
+    
+    <div>
+      <ul *ngFor="let item of children2">
+        <li>
+          {{item.Name}}
+        </li>
+      </ul>
+    </div>
+  
     <button (click)="logout()">Logout</button>
   </div>
-
+<div>
+</div>
 <button
   size="m"
   tuiButton
@@ -13,7 +21,7 @@
   type="button"
   (click)="showDialog()"
 >
-  Show
+  Add Child
 </button>
 <ng-template
   let-observer
@@ -68,7 +76,7 @@
       <button
         tuiButton
         [disabled]="myForm.form.invalid"
-          type="submit"  class="p-2 w-full rounded-full bg-blue-400 rounded text-white" style="background-color: #3D6CE4; font-weight: bolder;"
+          type="submit"  class="p-2 w-full rounded-full bg-blue-400 text-white" style="background-color: #3D6CE4; font-weight: bolder;"
           >
             Add Child
     </button>

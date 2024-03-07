@@ -1,12 +1,9 @@
 
 <div style="background-color: lightslategray; height: 15vh; width: 30vw; margin: auto; margin-top: 5vh;">
-
 </div>
-
 <div class=" border rounded-full m-auto text-black bg-white text-left"  style="padding: 1em; width: 65vw;  margin-top: 5vh;">
     Parent Sign in <span class="bg-white float-right">Driver Sign in</span>
 </div>
-
 <div style="margin-top: 5vh; ">
     <form (ngSubmit)="submit()" #myForm ="ngForm" class="p-4 border m-auto " style=" width: 90vw; border-radius:27px;  ">
         <h1 class="text-center text-xl"><b>Sign in to SmartTransport Kids</b></h1>
@@ -35,11 +32,8 @@
         <button [disabled]="myForm.form.invalid" type="submit"  class="p-2 w-full rounded-full bg-blue-400 rounded text-white" style="background-color: #3D6CE4; font-weight: bolder;">
             <ng-container *ngIf="isLoading()">Loading...</ng-container>
             <ng-container *ngIf="!isLoading()">Login</ng-container>
-            
         </button>
-
     </div>
-    
     </form>
 </div>
 

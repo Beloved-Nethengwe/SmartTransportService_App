@@ -1,22 +1,26 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { FormControl, FormGroup } from '@angular/forms';
 import { ChildModel } from '../../types/Child';
 import { ChildApiService } from '../../services/child-api.service';
+import { SessionHelper } from '../../helpers/sessionStorage.helper';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class HomeComponent implements OnInit {
   finalUuid:any
   open:boolean = false;
-  constructor(private authService:AuthService, private childApiService:ChildApiService){}
+  public children2: ChildModel[] = [];
+  users$: any[]=[];
+  currentUser:string=''
+
+  constructor(private authService:AuthService, private childApiService:ChildApiService,private sessionHelper: SessionHelper){}
   ngOnInit(): void {
-    this.form.ParentID=this.authService.uuiForChild
-    console.log(this.form.ParentID);
+    this.finalUuid= this.sessionHelper.getItem("currentUser")
+    this.getChildren(this.finalUuid)
     
   }
   form: ChildModel={
@@ -31,24 +35,36 @@ export class HomeComponent implements OnInit {
   
   logout() {
     return this.authService.logout()
-
   }
-
-  onSubmitForNewChild(){
-
-    console.log('uuid along with child' ,this.form.ParentID);
-    console.log('formData' ,this.form);
   
+  onSubmitForNewChild(){
+    
+    console.log(this.form);
+    this.form.ParentID = this.finalUuid;
+    console.log(this.form.ParentID);
+    
+    console.log('uuid along with child: ' ,this.finalUuid);
+    console.log('formData' ,this.form);
+    
     this.childApiService.addChild(this.form)
     .subscribe(data=>{
       console.log('DATA',data);
-      
     })
   }
-
-
-
+  
   showDialog(): void {
-      this.open = true;
+    this.open = true;
+  }
+  
+  getChildren(ParentID:string): void{
+    console.log(this.finalUuid);
+    
+    this.childApiService.getChildrenByParentID(ParentID)
+    .subscribe(
+      (data)=>{
+        console.log("child data",data.children);
+        this.children2 = data.children
+        
+      })
   }
 }

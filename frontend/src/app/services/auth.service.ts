@@ -3,6 +3,8 @@ import { LoginForm, User } from '../types/Auth';
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword ,signOut} from 'firebase/auth';
 import {  Router } from '@angular/router';
 import { ParentApiService } from './parent-api.service';
+import { ChildApiService } from './child-api.service';
+import { SessionHelper } from '../helpers/sessionStorage.helper';
 
 @Injectable({
   providedIn: 'root'
@@ -14,26 +16,26 @@ export class AuthService {
   passwordMatch:boolean =true;
   userUuid:Object={};
   public uuiForChild:any;
-  constructor(private router :Router, private parentApiService: ParentApiService,) { }
+  constructor(private router :Router, private parentApiService: ParentApiService, private childApiService:ChildApiService, private sessionHelper: SessionHelper) { }
 
   login(form: LoginForm){
     if (this.isLoading) return;
-    console.log(form.email);
-    console.log(form.password);
     
     this.isLoading=true;
     const auth = getAuth();
     signInWithEmailAndPassword(auth, form.email, form.password)
     .then((userCredential:Object) => {
     // Signed in 
-    console.log("uuid :",userCredential);
+    console.log("user Object firebase :",userCredential);
     this.userUuid=userCredential;
     
     const currUser =auth.currentUser;
     this.uuiForChild=currUser?.uid;
+    console.log( this.uuiForChild);
+    this.sessionHelper.setItem("currentUser",this.uuiForChild)
     
     this.isAuthenticated = true;
-    
+    this.childApiService.getUsers();
     this.router.navigate(['/home'])
     })
     .catch((error:string) => {
@@ -81,17 +83,13 @@ export class AuthService {
         .subscribe( (data: any)=>{
         console.log("this is data uid",data); 
         })
-        
       }
 
-      
     } catch (error:any) {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorMessage);
-      
     }
-
   }
 
   logout(){
@@ -100,6 +98,7 @@ export class AuthService {
     signOut(auth).then(() => {
       // Sign-out successful.
       this.router.navigate(['/login'])
+      this.sessionHelper.removeItem("currentUser")
       this.isAuthenticated=false;
     }).catch((error:any) => {
   // An error happened.
