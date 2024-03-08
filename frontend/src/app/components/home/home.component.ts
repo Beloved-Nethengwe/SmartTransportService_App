@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { ChildModel } from '../../types/Child';
 import { ChildApiService } from '../../services/child-api.service';
 import { SessionHelper } from '../../helpers/sessionStorage.helper';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +14,11 @@ import { SessionHelper } from '../../helpers/sessionStorage.helper';
 export class HomeComponent implements OnInit {
   finalUuid:any
   open:boolean = false;
-  public children2: ChildModel[] = [];
+  public childrenDetail$: any[] = [];
   users$: any[]=[];
   currentUser:string=''
 
-  constructor(private authService:AuthService, private childApiService:ChildApiService,private sessionHelper: SessionHelper){}
+  constructor(private authService:AuthService, private childApiService:ChildApiService,private sessionHelper: SessionHelper,private router:Router){}
   ngOnInit(): void {
     this.finalUuid= this.sessionHelper.getItem("currentUser")
     this.getChildren(this.finalUuid)
@@ -63,8 +64,16 @@ export class HomeComponent implements OnInit {
     .subscribe(
       (data)=>{
         console.log("child data",data.children);
-        this.children2 = data.children
+        this.childrenDetail$ = data.children
         
       })
+  }
+  deleteChild(id:any,){
+    this.childApiService.deleteChild(id)
+    .subscribe({
+      next: (data)=>{
+      
+        this.router.navigate(['home'])
+      }})
   }
 }

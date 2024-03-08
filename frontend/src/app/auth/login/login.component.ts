@@ -19,8 +19,6 @@ export class LoginComponent  {
 
   submit(){
     this.authService.login(this.form)
-  
-    
   }
   
   isLoading(){
@@ -29,7 +27,5 @@ export class LoginComponent  {
 
   navigateToRegister() {
     this.router.navigate(['/register'])
- }
-
-
+  }
 }

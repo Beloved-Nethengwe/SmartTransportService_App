@@ -1,6 +1,4 @@
-
-<div style="background-color: lightslategray; height: 15vh; width: 30vw; margin: auto; margin-top: 5vh;">
-</div>
+<div style="background-color: lightslategray; height: 15vh; width: 30vw; margin: auto; margin-top: 5vh;"></div>
 <div class=" border rounded-full m-auto text-black bg-white text-left"  style="padding: 1em; width: 65vw;  margin-top: 5vh;">
     Parent Sign in <span class="bg-white float-right">Driver Sign in</span>
 </div>
@@ -28,12 +26,12 @@
         <div *ngIf="password.invalid && (password.dirty || password.touched)" class="bg-red-300 text-red-800 rounded">
             Password field must be valid
         </div>
-    <div class="my-5 w-full">
-        <button [disabled]="myForm.form.invalid" type="submit"  class="p-2 w-full rounded-full bg-blue-400 rounded text-white" style="background-color: #3D6CE4; font-weight: bolder;">
-            <ng-container *ngIf="isLoading()">Loading...</ng-container>
-            <ng-container *ngIf="!isLoading()">Login</ng-container>
-        </button>
-    </div>
+        <div class="my-5 w-full">
+            <button [disabled]="myForm.form.invalid" type="submit"  class="p-2 w-full rounded-full bg-blue-400 rounded text-white" style="background-color: #3D6CE4; font-weight: bolder;">
+                <ng-container *ngIf="isLoading()">Loading...</ng-container>
+                <ng-container *ngIf="!isLoading()">Login</ng-container>
+            </button>
+        </div>
     </form>
 </div>
 

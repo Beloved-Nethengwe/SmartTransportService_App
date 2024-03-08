@@ -27,14 +27,9 @@ constructor(private router:Router, private authService: AuthService, private par
 
   }
 
-
-
   toggleForm() {
     this.showDriverForm = !this.showDriverForm;
   }
-  // submit(){
-  //   this.authService.register(this.form)
-  // }
 
   submit(){
     this.authService.registerAndGetUid(this.form)
@@ -46,11 +41,4 @@ constructor(private router:Router, private authService: AuthService, private par
   isLoading(){
     return this.authService.isLoading;
   }
-
-  // addParent(){
-  //   this.parentApiService.addParent(this.form)
-  //   .subscribe( (data: any)=>{
-  //     console.log(data); 
-  //   })
-  // }
 }

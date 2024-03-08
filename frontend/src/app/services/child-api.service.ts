@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ChildModel } from '../types/Child';
+import { ChildDto, ChildModel } from '../types/Child';
 import { BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { BehaviorSubject, Observable} from 'rxjs';
 })
 export class ChildApiService {
   baseURL: string = `http://localhost:3000/`
-  apiUrl: string = 'https://jsonplaceholder.typicode.com/users'
+
   users$:BehaviorSubject<object[]> = new BehaviorSubject<object[]>([])
 
   constructor(private http :HttpClient) { }
@@ -20,9 +20,22 @@ export class ChildApiService {
   }
 
   getChildrenByParentID(parentID: string):Observable<any>{
-    const url = this.baseURL+`children/${parentID}`
+    const url = this.baseURL+`children/parent/${parentID}`
     return this.http.get<any>(url)
   }
+  deleteChild(id: any):Observable<ChildModel>{
+    const url = this.baseURL+`children/${id}`
+    return this.http.delete<ChildModel>(url)
+  }
+
+  getChildById(id: any):Observable<ChildDto>{
+    const url = this.baseURL+`children/${id}`
+    return this.http.get<ChildDto>(url)
+  }
+
+  updateChild(id:string, childModel:ChildModel):Observable<any>{
+    const url = this.baseURL+`children/${id}`
+    return this.http.put<any>(url,childModel)
+  }
   
-  getUsers(){ return this.http.get<any[]>(this.apiUrl)}
 }

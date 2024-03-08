@@ -1,6 +1,5 @@
 
 <div  style="margin-top: 5vh;overflow-y: scroll; ">
-
     <button (click)="toggleForm()" class="p-2 w-7/12 rounded-lg bg-blue-400  text-white center-button" style=" font-weight: bolder; display: flex; justify-content: center;">
         <ng-container *ngIf="showDriverForm">Click here to sign in as Driver</ng-container>
         <ng-container *ngIf="!showDriverForm">Click here to sign in as Parent</ng-container>
@@ -184,7 +183,6 @@
             <button [disabled]="myForm.form.invalid" type="submit"  class="p-2 w-full rounded-full bg-blue-400 rounded text-white" style="background-color: #3D6CE4; font-weight: bolder;">
                 <ng-container *ngIf="isLoading()">Loading...</ng-container>
                 <ng-container *ngIf="!isLoading()">Register</ng-container>
-                
             </button>
             </div>    
         </form>

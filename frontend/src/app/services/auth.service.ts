@@ -3,7 +3,7 @@ import { LoginForm, User } from '../types/Auth';
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword ,signOut} from 'firebase/auth';
 import {  Router } from '@angular/router';
 import { ParentApiService } from './parent-api.service';
-import { ChildApiService } from './child-api.service';
+
 import { SessionHelper } from '../helpers/sessionStorage.helper';
 
 @Injectable({
@@ -16,7 +16,7 @@ export class AuthService {
   passwordMatch:boolean =true;
   userUuid:Object={};
   public uuiForChild:any;
-  constructor(private router :Router, private parentApiService: ParentApiService, private childApiService:ChildApiService, private sessionHelper: SessionHelper) { }
+  constructor(private router :Router, private parentApiService: ParentApiService, private sessionHelper: SessionHelper) { }
 
   login(form: LoginForm){
     if (this.isLoading) return;
@@ -33,9 +33,7 @@ export class AuthService {
     this.uuiForChild=currUser?.uid;
     console.log( this.uuiForChild);
     this.sessionHelper.setItem("currentUser",this.uuiForChild)
-    
     this.isAuthenticated = true;
-    this.childApiService.getUsers();
     this.router.navigate(['/home'])
     })
     .catch((error:string) => {
@@ -45,7 +43,6 @@ export class AuthService {
       this.isLoading=false;
     });
   }
-  
   
   register(form: User){
     if (this.isLoading) return;

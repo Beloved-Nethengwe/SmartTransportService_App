@@ -1,17 +1,40 @@
-<p>home works!</p>
 <div id="container">
-    
-    <div>
-      <ul *ngFor="let item of children2">
-        <li>
-          {{item.Name}}
-        </li>
-      </ul>
-    </div>
-  
     <button (click)="logout()">Logout</button>
   </div>
 <div>
+<p>home works!</p>
+
+<div class="container my-5">
+  <h1 class="mb-3">Current Logged in user</h1>
+  <table class="table" *ngIf="childrenDetail$ && childrenDetail$.length>0">
+      <thead>
+          <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Surname</th>
+              <th>Allergy</th>
+              <th>EmergContact</th>
+              <th>PickUp</th>
+              <th>Destination</th>
+              <th></th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let child of childrenDetail$">
+              <td>{{child.ID}}</td>
+              <td>{{child.Name}}</td>
+              <td>{{child.Surname}}</td>
+              <td>{{child.Allergy}}</td>
+              <td>{{child.EmergContact}}</td>
+              <td>{{child.PickUp}}</td>
+              <td>{{child.Destination}}</td>
+              <td><a [routerLink]="['/children','edit',child.ID]">View</a></td>
+              <td><a  (click)="deleteChild(child.ID)">Delete</a></td>
+          </tr>
+      </tbody>
+  </table>
+</div>
 </div>
 <button
   size="m"
