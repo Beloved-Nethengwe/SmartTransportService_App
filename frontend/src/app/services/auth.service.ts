@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { LoginForm, User } from '../types/Auth';
+import { DriverDto, LoginForm, User } from '../types/Auth';
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword ,signOut} from 'firebase/auth';
 import {  Router } from '@angular/router';
 import { ParentApiService } from './parent-api.service';
 
 import { SessionHelper } from '../helpers/sessionStorage.helper';
+import { DriverApiService } from './driver-api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class AuthService {
   passwordMatch:boolean =true;
   userUuid:Object={};
   public uuiForChild:any;
-  constructor(private router :Router, private parentApiService: ParentApiService, private sessionHelper: SessionHelper) { }
+  constructor(private router :Router, private parentApiService: ParentApiService, private sessionHelper: SessionHelper,private driverApiService: DriverApiService) { }
 
   login(form: LoginForm){
     if (this.isLoading) return;
@@ -34,7 +35,7 @@ export class AuthService {
     console.log( this.uuiForChild);
     this.sessionHelper.setItem("currentUser",this.uuiForChild)
     this.isAuthenticated = true;
-    this.parentApiService.getLoggedInUserRole(this.sessionHelper.getItem("currentUser"))
+    this.parentApiService.getLoggedInParentRole(this.sessionHelper.getItem("currentUser"))
     .subscribe({
       next:(result:any)=>{
         if (result.parent) {
@@ -43,7 +44,7 @@ export class AuthService {
         }
       },
       error:()=>{
-        
+
       }
       
     })
@@ -81,7 +82,7 @@ export class AuthService {
     });
   }
   
-  async registerAndGetUid(form:User){
+  async registerAndGetUidParent(form:User){
     const auth = getAuth();
     try {
       const userCredential= await createUserWithEmailAndPassword(auth, form.Email, form.Password)
@@ -89,11 +90,35 @@ export class AuthService {
         const uid = userCredential.user.uid;
         form.ID = uid;
         console.log(form.ID);
-        form.roleId=2;
+        form.roleId=1;
         console.log("form with guid",form);
         this.parentApiService.addParent(form)
         .subscribe( (data: any)=>{
         console.log("this is data uid",data); 
+        this.router.navigate(['/login'])
+        })
+      }
+
+    } catch (error:any) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorMessage);
+    }
+  }
+
+  async registerAndGetUidDriver(driverForm:DriverDto){
+    const auth = getAuth();
+    try {
+      const userCredential= await createUserWithEmailAndPassword(auth, driverForm.Email, driverForm.Password)
+      if (userCredential && userCredential.user) {
+        const uid = userCredential.user.uid;
+        driverForm.ID = uid;
+        driverForm.roleId=2;
+        console.log("form with guid",driverForm);
+        this.driverApiService.addDriver(driverForm)
+        .subscribe( (data: any)=>{
+        console.log("this is data uid",data);
+        this.router.navigate(['/login']) 
         })
       }
 

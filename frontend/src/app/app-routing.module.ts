@@ -5,9 +5,9 @@ import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { EditChildComponent } from './components/edit-child/edit-child.component';
 import { SideNavComponent } from './shared/side-nav/side-nav.component';
-import { UsersComponent } from './types/users/users.component';
-import { RoomsComponent } from './types/rooms/rooms.component';
-import { PackagesComponent } from './types/packages/packages.component';
+import { UsersComponent } from './test-components/users/users.component';
+import { RoomsComponent } from './test-components/rooms/rooms.component';
+import { PackagesComponent } from './test-components/packages/packages.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/login',pathMatch:'full'},

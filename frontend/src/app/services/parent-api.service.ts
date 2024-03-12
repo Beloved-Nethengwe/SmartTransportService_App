@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../types/Auth';
 import { Observable } from 'rxjs';
+import { User } from '../types/Auth';
 
 
 @Injectable({
@@ -18,7 +18,7 @@ export class ParentApiService {
       return this.http.post(this.baseURL + 'parents',body,{'headers':headers})
     }
 
-    getLoggedInUserRole(id: any):Observable<any>{
+    getLoggedInParentRole(id: any):Observable<any>{
       const url = this.baseURL+`parents/${id}`
       return this.http.get<any>(url)
     }

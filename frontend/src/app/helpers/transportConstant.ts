@@ -9,22 +9,22 @@ export const TransportConstant ={
         {
             path:'home',
             text:'Home',
-            roles:['parent','driver']
+            roles:[1,2]
         },
         {
             path:'Users',
             text:'Users',
-            roles:['driver']
+            roles:[2]
         },
         {
             path:'Rooms',
             text:'Rooms',
-            roles:['parent']
+            roles:[1]
         },
         {
             path:'Packages',
             text:'Packages',
-            roles:['driver']
+            roles:[2]
         },
     ]
 }

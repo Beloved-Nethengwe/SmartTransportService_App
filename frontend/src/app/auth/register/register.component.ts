@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { User } from '../../types/Auth';;
+import { DriverDto, User } from '../../types/Auth';;
 import { ParentApiService } from '../../services/parent-api.service';
 
 
@@ -24,18 +24,33 @@ constructor(private router:Router, private authService: AuthService, private par
     Password: '',
     conPassword: '',
     Email:'',
-    roleId:2
+    roleId:1
+  }
 
+  parentForm: DriverDto={
+    ID: '',
+    IDNumber: '',
+    Name: '',
+    Surname: '',
+    CellphoneNumber: '',
+    Image: '',
+    CarRegistrationNumber:'',
+    Password: '',
+    conPassword: '',
+    Email:'',
+    roleId:2
   }
 
   toggleForm() {
     this.showDriverForm = !this.showDriverForm;
   }
 
-  submit(){
-    console.log(this.form);
-    
-    this.authService.registerAndGetUid(this.form)
+  submit(){    
+    this.authService.registerAndGetUidParent(this.form)
+  }
+
+  submitForDriver(){
+    this.authService.registerAndGetUidDriver(this.parentForm)
   }
   navigateToSignIn() {
     this.router.navigate(['/login'])

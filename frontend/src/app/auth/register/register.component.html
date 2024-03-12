@@ -97,23 +97,23 @@
         </form>
     </div>
     <div  *ngIf="!showDriverForm">
-        <form (ngSubmit)="submit()" class="p-4 border m-auto " #myForm="ngForm" style=" width: 90vw; border-radius:27px;  ">
+        <form (ngSubmit)="submitForDriver()" class="p-4 border m-auto " #myForm="ngForm" style=" width: 90vw; border-radius:27px;  ">
             <h1 class="text-center text-xl"><b>Sign up to SmartTransport Kids As Driver</b></h1>
             <div class="my-2 w-full">
                 <label for="firstname">First Name</label>
                 <input type="firstname" id="firstname"
                 class="p-2  rounded w-full border"
-                placeholder="First Name" [(ngModel)]="form.PName"
+                placeholder="First Name" [(ngModel)]="parentForm.Name"
                 name="firstname" required #firstname="ngModel">
             </div>
             <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="bg-red-300 text-red-800 rounded">
             firstname field must be valid
-        </div>
+            </div>
             <div class="my-2 w-full">
             <label for="lastname">Last Name</label>
             <input type="lastname" id="lastname"
                 class="p-2  rounded w-full border"
-                placeholder="Last Name" [(ngModel)]="form.Surname"
+                placeholder="Last Name" [(ngModel)]="parentForm.Surname"
                 name="lastname" required #lastname="ngModel">
             </div>
             <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="bg-red-300 text-red-800 rounded">
@@ -123,7 +123,7 @@
             <label for="identityNumber">Identity Number </label> <span></span>
             <input type="identityNumber" id="identityNumber"
                 class="p-2  rounded w-full border" 
-                placeholder="identity Number"  [(ngModel)]="form.IDNumber"
+                placeholder="identity Number"  [(ngModel)]="parentForm.IDNumber"
                 name="identityNumber" required #identity="ngModel">
             </div>
             <div *ngIf="identity.invalid && (identity.dirty || identity.touched)" class="bg-red-300 text-red-800 rounded">
@@ -133,37 +133,47 @@
             <label for="email">Email </label> <span></span>
             <input type="email" id="email"
                 class="p-2  rounded w-full border" 
-                placeholder="Email"  [(ngModel)]="form.Email"
+                placeholder="Email"  [(ngModel)]="parentForm.Email"
                 name="email" required #email="ngModel">
             </div>
             <div *ngIf="email.invalid && (email.dirty || email.touched)" class="bg-red-300 text-red-800 rounded">
             email field must be valid
             </div>
             <div class="my-2 w-full">
-                <label for="address">Address</label> <span></span>
-                <input type="address" id="address"
-                class="p-2  rounded w-full border" 
-                placeholder="Address" [(ngModel)]="form.Address"
-                name="address" required #address="ngModel">
-            </div>
-            <div *ngIf="address.invalid && (address.dirty || address.touched)" class="bg-red-300 text-red-800 rounded">
-            address field must be valid
-            </div>
-            <div class="my-2 w-full">
             <label for="cellNumber">Cell Number</label> <span></span>
             <input type="cellNumber" id="cellNumber"
                 class="p-2  rounded w-full border" 
-                placeholder="cellNumber" [(ngModel)]="form.CellphoneNumber"
+                placeholder="cellNumber" [(ngModel)]="parentForm.CellphoneNumber"
                 name="cellNumber" required #cellNumber="ngModel">
             </div>
             <div *ngIf="cellNumber.invalid && (cellNumber.dirty || cellNumber.touched)" class="bg-red-300 text-red-800 rounded">
             cellNumber field must be valid
             </div>
             <div class="my-2 w-full">
+                <label for="image">Image Url</label> <span></span>
+                <input type="text" id="image"
+                    class="p-2  rounded w-full border" 
+                    placeholder="image" [(ngModel)]="parentForm.Image"
+                    name="image" required #image="ngModel">
+            </div>
+            <div *ngIf="image.invalid && (image.dirty || image.touched)" class="bg-red-300 text-red-800 rounded">
+                email field must be valid
+            </div>
+            <div class="my-2 w-full">
+                <label for="carRegistration">Car Registration</label> <span></span>
+                <input type="carRegistration" id="carRegistration"
+                    class="p-2  rounded w-full border" 
+                    placeholder="carRegistration" [(ngModel)]="parentForm.CarRegistrationNumber"
+                    name="carRegistration" required #carRegistration="ngModel">
+            </div>
+            <div *ngIf="carRegistration.invalid && (carRegistration.dirty || carRegistration.touched)" class="bg-red-300 text-red-800 rounded">
+                carRegistration field must be valid
+            </div>
+            <div class="my-2 w-full">
             <label for="password">Password </label> <span></span>
             <input type="password" id="password"
                 class="p-2  rounded w-full border" 
-                placeholder="Password" [(ngModel)]="form.Password"
+                placeholder="Password" [(ngModel)]="parentForm.Password"
                 name="password" required #password="ngModel">
             </div>
             <div *ngIf="password.invalid && (password.dirty || password.touched)" class="bg-red-300 text-red-800 rounded">
@@ -173,7 +183,7 @@
             <label for="confirmPassword">Confirm Password </label> <span></span>
             <input type="confirmPassword" id="confirmPassword"
                 class="p-2  rounded w-full border" 
-                placeholder="Confirm Password" [(ngModel)]="form.conPassword"
+                placeholder="Confirm Password" [(ngModel)]="parentForm.conPassword"
                 name="confirmPassword" required #conPass="ngModel">
             </div>
             <div *ngIf="conPass.invalid && (conPass.dirty || conPass.touched)" class="bg-red-300 text-red-800 rounded">

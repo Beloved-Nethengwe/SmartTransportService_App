@@ -26,3 +26,16 @@ export interface LoginForm{
     email:string;
 }
 
+export interface DriverDto{
+    ID: string; 
+    IDNumber: string;
+    Name: string;//
+    Surname: string;
+    CellphoneNumber: string;
+    Image: string;
+    CarRegistrationNumber:string;
+    Password: string;
+    conPassword: string;
+    Email:string;
+    roleId:number;
+}
