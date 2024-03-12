@@ -8,7 +8,7 @@ export interface User{
     Password: string;
     conPassword: string;
     Email:string;
-    Role:string
+    roleId:number
 }
 
 export interface UserDto{

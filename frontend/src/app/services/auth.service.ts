@@ -41,8 +41,11 @@ export class AuthService {
           this.sessionHelper.setItem('localUserData',JSON.stringify(result.parent))
           this.router.navigateByUrl("home")
         }
+      },
+      error:()=>{
         
       }
+      
     })
     this.router.navigate(['/home'])
     })
@@ -85,6 +88,8 @@ export class AuthService {
       if (userCredential && userCredential.user) {
         const uid = userCredential.user.uid;
         form.ID = uid;
+        console.log(form.ID);
+        form.roleId=2;
         console.log("form with guid",form);
         this.parentApiService.addParent(form)
         .subscribe( (data: any)=>{

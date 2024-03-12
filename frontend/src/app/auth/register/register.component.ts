@@ -24,7 +24,7 @@ constructor(private router:Router, private authService: AuthService, private par
     Password: '',
     conPassword: '',
     Email:'',
-    Role:''
+    roleId:2
 
   }
 
@@ -33,6 +33,8 @@ constructor(private router:Router, private authService: AuthService, private par
   }
 
   submit(){
+    console.log(this.form);
+    
     this.authService.registerAndGetUid(this.form)
   }
   navigateToSignIn() {

@@ -11,7 +11,7 @@
                 <label for="firstname">First Name</label>
                 <input type="firstname" id="firstname"
                 class="p-2  rounded w-full border"
-                placeholder="First Name" [(ngModel)]="form.Name"
+                placeholder="First Name" [(ngModel)]="form.PName"
                 name="firstname" required #firstname="ngModel">
             </div>
             <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="bg-red-300 text-red-800 rounded">
@@ -103,7 +103,7 @@
                 <label for="firstname">First Name</label>
                 <input type="firstname" id="firstname"
                 class="p-2  rounded w-full border"
-                placeholder="First Name" [(ngModel)]="form.Name"
+                placeholder="First Name" [(ngModel)]="form.PName"
                 name="firstname" required #firstname="ngModel">
             </div>
             <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="bg-red-300 text-red-800 rounded">
