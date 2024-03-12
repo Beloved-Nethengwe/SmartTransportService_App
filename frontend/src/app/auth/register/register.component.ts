@@ -16,14 +16,15 @@ constructor(private router:Router, private authService: AuthService, private par
 
   form: User ={
     ID: '',
-    Name: '',
+    PName: '',
     Surname: '',
     IDNumber: '',
     Address: '',
     CellphoneNumber: '',
     Password: '',
     conPassword: '',
-    Email:''
+    Email:'',
+    Role:''
 
   }
 

@@ -17,4 +17,9 @@ export class ParentApiService {
       const body =JSON.stringify(parent);
       return this.http.post(this.baseURL + 'parents',body,{'headers':headers})
     }
+
+    getLoggedInUserRole(id: any):Observable<any>{
+      const url = this.baseURL+`parents/${id}`
+      return this.http.get<any>(url)
+    }
   }

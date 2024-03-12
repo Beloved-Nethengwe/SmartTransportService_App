@@ -1,6 +1,6 @@
 export interface User{
     ID: string;
-    Name: string;
+    PName: string;
     Surname: string;
     IDNumber: string;
     Address: string;
@@ -8,6 +8,17 @@ export interface User{
     Password: string;
     conPassword: string;
     Email:string;
+    Role:string
+}
+
+export interface UserDto{
+    ID: string;
+    PName: string;
+    Surname: string;
+    IDNumber: string;
+    Address: string;
+    CellphoneNumber: string;
+    Role:string
 }
 
 export interface LoginForm{

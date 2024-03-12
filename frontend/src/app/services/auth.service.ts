@@ -34,6 +34,16 @@ export class AuthService {
     console.log( this.uuiForChild);
     this.sessionHelper.setItem("currentUser",this.uuiForChild)
     this.isAuthenticated = true;
+    this.parentApiService.getLoggedInUserRole(this.sessionHelper.getItem("currentUser"))
+    .subscribe({
+      next:(result:any)=>{
+        if (result.parent) {
+          this.sessionHelper.setItem('localUserData',JSON.stringify(result.parent))
+          this.router.navigateByUrl("home")
+        }
+        
+      }
+    })
     this.router.navigate(['/home'])
     })
     .catch((error:string) => {
