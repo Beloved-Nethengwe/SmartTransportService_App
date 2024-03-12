@@ -15,10 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SideNavComponent } from './shared/side-nav/side-nav.component';
 import { AddChildFormComponent } from './shared/add-child-form/add-child-form.component';
 import { ButtonComponent } from './shared/button/button.component';
-
-import { UsersComponent } from './test-components/users/users.component';
-import { PackagesComponent } from './test-components/packages/packages.component';
-import { RoomsComponent } from './test-components/rooms/rooms.component';
+import { EditChildComponent } from "./components/edit-child/edit-child.component";
 
 @NgModule({
   declarations: [
@@ -29,10 +26,7 @@ import { RoomsComponent } from './test-components/rooms/rooms.component';
     SideNavComponent,
     AddChildFormComponent,
     ButtonComponent,
-    Editc,
-    UsersComponent,
-    PackagesComponent,
-    RoomsComponent,
+    EditChildComponent,
   ],
   imports: [
     BrowserModule,

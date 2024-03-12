@@ -3,9 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './components/home/home.component';
-import { EditChildComponen
-import { SideNavComponent } from './shared/side-nav/side-nav.component';
-
+import { EditChildComponent } from './components/edit-child/edit-child.component';
 
 const routes: Routes = [
   {path:'', component:LoginComponent},
