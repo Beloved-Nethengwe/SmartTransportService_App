@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, computed, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { SessionHelper } from '../../helpers/sessionStorage.helper';
 import { TransportConstant } from '../../helpers/transportConstant';
-import { UserDto } from '../../types/Auth';
 import { AuthService } from '../../services/auth.service';
+export type MenuItem = {
+  icon: string,
+  label: string,
+  route? : string,
+}
 
 @Component({
   selector: 'sidebar',
@@ -11,6 +15,31 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './side-nav.component.css'
 })
 export class SideNavComponent implements OnInit {
+  sideNavCollapsed = signal(false)
+  @Input() set collapsed(val: boolean) {
+    this.sideNavCollapsed.set(val)
+  }
+
+  menuItems = signal<MenuItem[]>([
+    {
+      icon: 'home',
+      label: 'Home',
+      route: 'home'
+    },
+    {
+      icon: 'person',
+      label: 'Child Details',
+      route: 'children-details'
+    },
+    {
+      icon: 'login',
+      label: 'Logout',
+      route: 'login'
+    },
+  ]);
+
+  profilePicSize = computed(() => this.sideNavCollapsed() ? '32' : '100' )
+
   menu: any = [];
   role:string =''
   filteredMenu:any[]=[]

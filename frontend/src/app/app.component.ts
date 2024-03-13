@@ -1,16 +1,32 @@
-import { Component } from '@angular/core';
-import{OnInit} from '@angular/core';
-import { firebaseConfig } from './firebase.config';
-import { initializeApp } from 'firebase/app';
+import { Component, computed, signal } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
- 
-  ngOnInit(): void {
-    initializeApp(firebaseConfig)
+export class AppComponent { 
+
+  constructor (private authService:AuthService,private _router:Router){}
+  collapsed = signal(false)
+
+  sidenavWidth = computed(() => this.collapsed() ? '65px' : '250px')
+
+  logout() {
+    return this.authService.logout()
+  }
+
+  isLoginRoute(): boolean {
+    if (
+      this._router.isActive('/login', true) ||
+      this._router.isActive('/register', true) ||
+      this._router.isActive('', true) 
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
