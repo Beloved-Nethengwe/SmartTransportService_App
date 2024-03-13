@@ -1,26 +1,15 @@
-*{
-    padding: 0;
-    border: 0;
-    margin: 0;
+#content{
+    max-width: 98vw;
 }
 
-mat-toolbar {
-    position: relative;
-    z-index: 5;
+#container{
+    display: flex;
+    max-height: 100vh;
+    max-width: 98vw;
 }
 
-mat-sidenav-container {
-    height: calc(100vh - 64px);
-}
-
-.content {
-    padding: 24px;
-}
-
-.logout {
-    margin-top: 15rem;
-    padding: 1rem;
-    width: calc(100% - .5rem);
-    font-size: 1.2rem;
-    border-radius: 0.5rem;
+a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from parent element */
+    cursor: pointer; /* Show pointer cursor on hover */
 }

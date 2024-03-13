@@ -18,12 +18,6 @@ import { EditChildComponent } from "./components/edit-child/edit-child.component
 import { UsersComponent } from './test-components/users/users.component';
 import { RoomsComponent } from './test-components/rooms/rooms.component';
 import { PackagesComponent } from './test-components/packages/packages.component';
-import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
-import { MatToolbarModule } from "@angular/material/toolbar";
-import { MatButtonModule } from "@angular/material/button";
-import { MatIconModule } from "@angular/material/icon";
-import { MatSidenavModule } from "@angular/material/sidenav";
-import { MatListModule } from '@angular/material/list'
 
 @NgModule({
   declarations: [
@@ -42,17 +36,9 @@ import { MatListModule } from '@angular/material/list'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterOutlet,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule, 
-    MatSidenavModule,
-    MatListModule,
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    RouterLink,
-    RouterLinkActive, 
     HttpClientModule,
       BrowserAnimationsModule,
       TuiRootModule,
