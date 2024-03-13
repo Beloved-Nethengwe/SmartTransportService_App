@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { SessionHelper } from '../../helpers/sessionStorage.helper';
 import { TransportConstant } from '../../helpers/transportConstant';
 import { UserDto } from '../../types/Auth';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'sidebar',
@@ -13,13 +14,13 @@ export class SideNavComponent implements OnInit {
   menu: any = [];
   role:string =''
   filteredMenu:any[]=[]
-  constructor(private _router:Router,  private _sessionHelper:SessionHelper){
-
+  constructor(private _router:Router,  private _sessionHelper:SessionHelper , private authService:AuthService){
+    
     this.menu = TransportConstant.menus;
     const userData= this._sessionHelper.getItem("localUserData");
     if(userData != null){
-      const parseObj = JSON.parse(userData as string) as UserDto ;
-      this.role = parseObj.Role;
+      const parseObj = JSON.parse(userData as string); //as UserDto 
+      this.role = parseObj.RoleID;
     }
     this.menu.forEach((element:any) => {
       const isRolePresent = element.roles.find((role:any)=>role ==this.role)
@@ -44,4 +45,9 @@ export class SideNavComponent implements OnInit {
       return false;
     }
   }
+
+  logout() {
+    return this.authService.logout()
+  }
+  
 }

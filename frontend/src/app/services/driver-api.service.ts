@@ -18,7 +18,7 @@ export class DriverApiService {
       return this.http.post(this.baseURL + 'driver',body,{'headers':headers})
     }
 
-    getLoggedInDriverRole(id: string):Observable<any>{
+    getLoggedInDriverRole(id: any):Observable<any>{
       const url = this.baseURL+`driver/${id}`
       return this.http.get<any>(url)
     }

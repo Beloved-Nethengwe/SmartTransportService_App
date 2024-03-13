@@ -38,12 +38,26 @@ export class AuthService {
     this.parentApiService.getLoggedInParentRole(this.sessionHelper.getItem("currentUser"))
     .subscribe({
       next:(result:any)=>{
+        console.log(result);
+        
         if (result.parent) {
           this.sessionHelper.setItem('localUserData',JSON.stringify(result.parent))
           this.router.navigateByUrl("home")
         }
       },
-      error:()=>{
+      error:(err)=>{
+        this.driverApiService.getLoggedInDriverRole(this.sessionHelper.getItem("currentUser"))
+        .subscribe({
+          next:(result:any)=>{
+            if(result.post){
+              this.sessionHelper.setItem('localUserData',JSON.stringify(result.post))
+              this.router.navigateByUrl("home")
+            }
+          },
+          error:()=>{
+
+          }
+        })
 
       }
       
@@ -136,6 +150,7 @@ export class AuthService {
       // Sign-out successful.
       this.router.navigate(['/login'])
       this.sessionHelper.removeItem("currentUser")
+      this.sessionHelper.removeItem("localUserData")
       this.isAuthenticated=false;
     }).catch((error:any) => {
   // An error happened.

@@ -1,13 +1,15 @@
 <div id="container" *ngIf="!isLoginRoute()">
     <div  style="display: flex;flex-direction: column;min-height: 100vh; background-color: orangered;">
         <div style="min-height:40vh; background-color: aliceblue;">
-            <smartTransport-button *>
-                <a routerLink="/children-details" >
-                    <div id="nav-button">
-                        
-                    </div>
-                </a>
-            </smartTransport-button>
+                <ul>
+                    <li *ngFor="let menu of filteredMenu">
+                        <a [routerLink]="menu.path" >
+                                {{menu.text}}
+                        </a>
+                    </li>
+                </ul>
+    
+            </div>
+            <button (click)="logout()">Logout</button>
         </div>
     </div>
-</div>
