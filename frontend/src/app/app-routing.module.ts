@@ -8,21 +8,26 @@ import { SideNavComponent } from './shared/side-nav/side-nav.component';
 import { UsersComponent } from './test-components/users/users.component';
 import { RoomsComponent } from './test-components/rooms/rooms.component';
 import { PackagesComponent } from './test-components/packages/packages.component';
+import { ChildDetailsComponent } from './components/child-details/child-details.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'/login',pathMatch:'full'},
+  // {path:'',redirectTo:'/login',pathMatch:'full'},
+  {path:'', component:LoginComponent},
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
   {path:'children/edit/:id', component:EditChildComponent}, 
-  { path:'',
-    component:SideNavComponent,
-    children:[
-      {path:'home', component:HomeComponent}, //parent + driver
-      {path:'Users', component:UsersComponent}, //driver
-      {path:'Rooms', component:RoomsComponent}, //parent 
-      {path:'Packages', component:PackagesComponent}, // driver
-    ]
-  },
+  {path:'child/details', component:ChildDetailsComponent}, //driver
+  {path:'Users', component:UsersComponent}, //driver
+  {path:'home', component:HomeComponent}, //parent + driver
+  // { path:'',
+  //   component:SideNavComponent,
+  //   children:[
+  //     {path:'home', component:HomeComponent}, //parent + driver
+  //     {path:'Users', component:UsersComponent}, //driver
+  //     {path:'Rooms', component:RoomsComponent}, //parent 
+  //     {path:'Packages', component:PackagesComponent}, // driver
+  //   ]
+  // },
 
 ];
 

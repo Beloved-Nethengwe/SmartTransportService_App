@@ -1,0 +1,19 @@
+<add-child-button></add-child-button>
+<div class="container my-5">
+    <table class="table" *ngIf="childrenDetail$ && childrenDetail$.length>0">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let child of childrenDetail$">
+                <td>{{child.Name}}</td>
+                <td><a [routerLink]="['/children','edit',child.ID]">View</a></td>
+                <td><a  (click)="deleteChild(child.ID)">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -42,7 +42,7 @@ export class AuthService {
         
         if (result.parent) {
           this.sessionHelper.setItem('localUserData',JSON.stringify(result.parent))
-          this.router.navigateByUrl("home")
+          this.router.navigate(['/home'])
         }
       },
       error:(err)=>{
@@ -51,7 +51,7 @@ export class AuthService {
           next:(result:any)=>{
             if(result.post){
               this.sessionHelper.setItem('localUserData',JSON.stringify(result.post))
-              this.router.navigateByUrl("home")
+              this.router.navigate(['/home'])
             }
           },
           error:()=>{

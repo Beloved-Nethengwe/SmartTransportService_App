@@ -1,12 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, computed, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { SessionHelper } from '../../helpers/sessionStorage.helper';
 import { TransportConstant } from '../../helpers/transportConstant';
-import { UserDto } from '../../types/Auth';
 import { AuthService } from '../../services/auth.service';
 
+export type MenuItem = {
+  icon: string,
+  label: string,
+  route? : string,
+  roles:any
+}
+
 @Component({
-  selector: 'sidebar',
+  selector: 'side-nav',
   templateUrl: './side-nav.component.html',
   styleUrl: './side-nav.component.css'
 })
@@ -29,6 +35,34 @@ export class SideNavComponent implements OnInit {
       }
     });
   }
+
+  sideNavCollapsed = signal(false)
+  @Input() set collapsed(val: boolean) {
+    this.sideNavCollapsed.set(val)
+  }
+
+  menuItems = signal<MenuItem[]>([
+    {
+      icon: 'home',
+      label: 'Home',
+      route: 'home',
+      roles: ['1','2']
+    },
+    {
+      icon: 'person',
+      label: 'Child Details',
+      route: 'child/details',
+      roles: ['1']
+    },
+    {
+      icon: 'view',
+      label: 'Child Details',
+      route: 'child/details',
+      roles: ['1']
+    },
+  ]);
+
+  profilePicSize = computed(() => this.sideNavCollapsed() ? '32' : '100' )
 
   ngOnInit(): void {
     this.isLoginRoute();

@@ -1,6 +1,23 @@
-<div id="container">
-    <div>
-        <sidebar></sidebar>
-        <router-outlet></router-outlet>
-    </div>
+<tui-root>
+<tui-root>
+<div>
+    <mat-toolbar *ngIf="!isLoginRoute()" class="mat-elevation-z3">
+        <button mat-icon-button (click)="collapsed.set(!collapsed())">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </mat-toolbar>
+    <mat-sidenav-container *ngIf="!isLoginRoute()">
+        <mat-sidenav opened mode="side" [style.width]="sidenavWidth()">
+            <side-nav [collapsed]="collapsed()"/>
+
+        </mat-sidenav>
+
+        <mat-sidenav-content class="content" [style.margin-left]="sidenavWidth()">
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+    <router-outlet *ngIf="isLoginRoute()"></router-outlet>
 </div>
+</tui-root>
+</tui-root>

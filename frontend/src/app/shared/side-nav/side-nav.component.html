@@ -1,15 +1,17 @@
-<div id="container" *ngIf="!isLoginRoute()">
-    <div  style="display: flex;flex-direction: column;min-height: 100vh; background-color: orangered;">
-        <div style="min-height:40vh; background-color: aliceblue;">
-                <ul>
-                    <li *ngFor="let menu of filteredMenu">
-                        <a [routerLink]="menu.path" >
-                                {{menu.text}}
-                        </a>
-                    </li>
-                </ul>
-    
-            </div>
-            <button (click)="logout()">Logout</button>
-        </div>
+<div *ngIf="!isLoginRoute()" class="side-nav-header">
+    <img [width]="profilePicSize()" [height]="profilePicSize()" src="../../../assets/WhatsApp Image 2024-03-13 at 9.17.56 PM (1).jpeg" alt=""/>
+    <div class="header-text" [class.hide-header-text]="sideNavCollapsed()">
+        <h2>Student</h2>
+        <p>Beloved M. Nethengwe</p>
     </div>
+</div>
+<mat-nav-list *ngIf="!isLoginRoute()">
+    <a mat-list-item *ngFor="let item of menuItems()" [routerLink]="item.route" routerLinkActive #rla="routerLinkActive" [activated]="rla.isActive">
+        <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+        <span matListItemTitle *ngIf="!sideNavCollapsed()">{{ item.label }}</span>
+    </a>
+    <a mat-list-item (click)="logout()" routerLinkActive #rla="routerLinkActive" [activated]="rla.isActive">
+        <mat-icon matListItemIcon>logout</mat-icon>
+        <span matListItemTitle *ngIf="!sideNavCollapsed()">Logout</span>
+    </a>
+</mat-nav-list>
