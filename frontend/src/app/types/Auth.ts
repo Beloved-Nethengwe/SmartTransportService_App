@@ -29,7 +29,7 @@ export interface LoginForm{
 export interface DriverDto{
     ID: string; 
     IDNumber: string;
-    Name: string;//
+    Name: string;
     Surname: string;
     CellphoneNumber: string;
     Image: string;
@@ -39,3 +39,4 @@ export interface DriverDto{
     Email:string;
     roleId:number;
 }
+

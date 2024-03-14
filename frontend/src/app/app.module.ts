@@ -22,6 +22,7 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from '@angular/material/list';
 import { ChildDetailsComponent } from './components/child-details/child-details.component';
 import { RequestsComponent } from './components/requests/requests.component';
+import { RequestRideComponent } from './components/request-ride/request-ride.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { RequestsComponent } from './components/requests/requests.component';
     SideNavComponent,
     ChildDetailsComponent,
     RequestsComponent,
+    RequestRideComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,15 +12,12 @@ const routes: Routes = [
   {path:'',redirectTo:'/login',pathMatch:'full'},
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
-  { path:'',
-  component:SideNavComponent,
-
-  
-},
-{path: 'home', component:HomeComponent}, //1: parent 2: driver
-{path:'children/edit/:id', component:EditChildComponent},
-{path:'child/details', component:ChildDetailsComponent}, //1:parent
-{path:'request', component:RequestsComponent}, //2:driver
+  {path:'',component:SideNavComponent,},
+  {path: 'home', component:HomeComponent}, //1: parent 2: driver
+  {path:'children/edit/:id', component:EditChildComponent},
+  {path:'child/details', component:ChildDetailsComponent}, //1:parent
+  {path:'request', component:RequestsComponent}, //2:driver
+  {path:'request/transport/:schoolName', component:RequestsComponent}, //2:driver
 
 ];
 

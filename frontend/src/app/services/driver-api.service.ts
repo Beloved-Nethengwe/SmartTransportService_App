@@ -18,9 +18,14 @@ export class DriverApiService {
       return this.http.post(this.baseURL + 'driver',body,{'headers':headers})
     }
 
-    getLoggedInDriverRole(id: any):Observable<any>{
+  getLoggedInDriverRole(id: any):Observable<any>{
       const url = this.baseURL+`driver/${id}`
       return this.http.get<any>(url)
     }
+
+  GetDriverByChildDestination(schoolName:string):Observable<DriverDto[]>{
+    const url = this.baseURL+`driver/transport-search/${schoolName}}`
+    return this.http.get<DriverDto[]>(url)
+  }
 
 }

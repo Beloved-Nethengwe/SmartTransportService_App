@@ -6,6 +6,7 @@
                 <th>Name</th>
                 <th></th>
                 <th></th>
+                <th>Request</th>
             </tr>
         </thead>
         <tbody>
@@ -13,6 +14,7 @@
                 <td>{{child.Name}}</td>
                 <td><a [routerLink]="['/children','edit',child.ID]">View</a></td>
                 <td><a  (click)="deleteChild(child.ID)">Delete</a></td>
+                <td><a  [routerLink]="['/request','transport',child.Destination]">Request-Driver</a></td>
             </tr>
         </tbody>
     </table>
