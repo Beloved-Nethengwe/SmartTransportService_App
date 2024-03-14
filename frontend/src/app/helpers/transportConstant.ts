@@ -7,24 +7,23 @@ export const TransportConstant ={
     },
     menus:[
         {
-            path:'/home',
-            text:'Home',
+            icon: 'home',
+            label: 'Home',
+            route: 'home',
             roles:['1','2']
         },
         {
-            path:'/Users',
-            text:'Users',
-            roles:['2']
-        },
-        {
-            path:'/Rooms',
-            text:'Rooms',
+            icon: 'person',
+            label: 'Child Details',
+            route: 'child/details',
             roles:['1']
         },
         {
-            path:'/Packages',
-            text:'Packages',
+            icon: 'emergency',
+            label: 'Requests',
+            route: 'request',
             roles:['2']
         },
+
     ]
 }

@@ -14,9 +14,6 @@ import { HomeComponent } from './components/home/home.component';
 import { SideNavComponent } from './shared/side-nav/side-nav.component';
 import { AddChildFormComponent } from './shared/add-child-form/add-child-form.component';
 import { EditChildComponent } from "./components/edit-child/edit-child.component";
-import { UsersComponent } from './test-components/users/users.component';
-import { RoomsComponent } from './test-components/rooms/rooms.component';
-import { PackagesComponent } from './test-components/packages/packages.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
@@ -24,6 +21,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from '@angular/material/list';
 import { ChildDetailsComponent } from './components/child-details/child-details.component';
+import { RequestsComponent } from './components/requests/requests.component';
 
 @NgModule({
   declarations: [
@@ -33,11 +31,9 @@ import { ChildDetailsComponent } from './components/child-details/child-details.
     HomeComponent,
     AddChildFormComponent,
     EditChildComponent,
-    UsersComponent,
-    RoomsComponent,
-    PackagesComponent,
     SideNavComponent,
     ChildDetailsComponent,
+    RequestsComponent,
   ],
   imports: [
     BrowserModule,

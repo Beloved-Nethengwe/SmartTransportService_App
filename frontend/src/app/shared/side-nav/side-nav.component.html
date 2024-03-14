@@ -1,12 +1,12 @@
 <div *ngIf="!isLoginRoute()" class="side-nav-header">
     <img [width]="profilePicSize()" [height]="profilePicSize()" src="../../../assets/WhatsApp Image 2024-03-13 at 9.17.56 PM (1).jpeg" alt=""/>
     <div class="header-text" [class.hide-header-text]="sideNavCollapsed()">
-        <h2>Student</h2>
-        <p>Beloved M. Nethengwe</p>
+        <h2>{{loggedInRole}}</h2>
+        <p>{{loggedInName}}</p>
     </div>
 </div>
 <mat-nav-list *ngIf="!isLoginRoute()">
-    <a mat-list-item *ngFor="let item of menuItems()" [routerLink]="item.route" routerLinkActive #rla="routerLinkActive" [activated]="rla.isActive">
+    <a mat-list-item *ngFor="let item of filteredMenu" [routerLink]="item.route" routerLinkActive #rla="routerLinkActive" [activated]="rla.isActive">
         <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
         <span matListItemTitle *ngIf="!sideNavCollapsed()">{{ item.label }}</span>
     </a>

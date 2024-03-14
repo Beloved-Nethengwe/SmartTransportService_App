@@ -5,29 +5,22 @@ import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { EditChildComponent } from './components/edit-child/edit-child.component';
 import { SideNavComponent } from './shared/side-nav/side-nav.component';
-import { UsersComponent } from './test-components/users/users.component';
-import { RoomsComponent } from './test-components/rooms/rooms.component';
-import { PackagesComponent } from './test-components/packages/packages.component';
 import { ChildDetailsComponent } from './components/child-details/child-details.component';
+import { RequestsComponent } from './components/requests/requests.component';
 
 const routes: Routes = [
-  // {path:'',redirectTo:'/login',pathMatch:'full'},
-  {path:'', component:LoginComponent},
+  {path:'',redirectTo:'/login',pathMatch:'full'},
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
-  {path:'children/edit/:id', component:EditChildComponent}, 
-  {path:'child/details', component:ChildDetailsComponent}, //driver
-  {path:'Users', component:UsersComponent}, //driver
-  {path:'home', component:HomeComponent}, //parent + driver
-  // { path:'',
-  //   component:SideNavComponent,
-  //   children:[
-  //     {path:'home', component:HomeComponent}, //parent + driver
-  //     {path:'Users', component:UsersComponent}, //driver
-  //     {path:'Rooms', component:RoomsComponent}, //parent 
-  //     {path:'Packages', component:PackagesComponent}, // driver
-  //   ]
-  // },
+  { path:'',
+  component:SideNavComponent,
+
+  
+},
+{path: 'home', component:HomeComponent}, //1: parent 2: driver
+{path:'children/edit/:id', component:EditChildComponent},
+{path:'child/details', component:ChildDetailsComponent}, //1:parent
+{path:'request', component:RequestsComponent}, //2:driver
 
 ];
 

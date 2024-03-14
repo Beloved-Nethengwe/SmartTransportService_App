@@ -6,6 +6,7 @@ import { ParentApiService } from './parent-api.service';
 
 import { SessionHelper } from '../helpers/sessionStorage.helper';
 import { DriverApiService } from './driver-api.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,25 @@ export class AuthService {
   passwordMatch:boolean =true;
   userUuid:Object={};
   public uuiForChild:any;
+
+  public localUserData:BehaviorSubject<any> = new BehaviorSubject<any>(null);
+
   constructor(private router :Router, private parentApiService: ParentApiService, private sessionHelper: SessionHelper,private driverApiService: DriverApiService) { }
+  
+  getLocalUserData():any{
+    if(this.localUserData.value ==undefined){
+      this.setLocalUserData();
+    }
+    return this.localUserData.value;
+  }
+
+  setLocalUserData():void{
+    this.localUserData.next(this.sessionHelper.getItem("localUserData"));
+  }
+
+  userPersonalDetails():any{
+    return {name:"bee",surname:"gysyfs",age:11}
+  }
 
   login(form: LoginForm){
     if (this.isLoading) return;
@@ -62,7 +81,7 @@ export class AuthService {
       }
       
     })
-    this.router.navigate(['/home'])
+    // this.router.navigate(['/home'])
     })
     .catch((error:string) => {
       this.isAuthenticated=false;
@@ -155,6 +174,8 @@ export class AuthService {
     }).catch((error:any) => {
   // An error happened.
     });
+
+    this.localUserData.next(undefined)
   }
 
 }
