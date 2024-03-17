@@ -3,6 +3,7 @@
     text-align: center;
 
     > img {
+        margin: auto;
         border-radius: 100%;
         object-fit: cover;
         margin-bottom: 10px;
@@ -23,9 +24,4 @@
 .hide-header-text {
     opacity: 0;
     height: 0;
-}
-img {
-    border-radius: 100%;
-    object-fit: cover;
-    margin-bottom: 10px;
 }
