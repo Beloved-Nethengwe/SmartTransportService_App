@@ -1,6 +1,6 @@
-<add-child-button></add-child-button>
+<p>pending-request works!</p>
 <div class="container my-5">
-    <table class="table" *ngIf="childrenDetail$ && childrenDetail$.length>0">
+    <table class="table" >
         <thead>
             <tr>
                 <th>Name</th>
@@ -14,9 +14,8 @@
             <tr *ngFor="let child of childrenDetail$">
                 <td>{{child.Name}}</td>
                 <td>{{child.Destination}}</td>
+                <td>{{child.Status}}</td>
                 <td><a [routerLink]="['/children','edit',child.ID]">View</a></td>
-                <td><a  (click)="deleteChild(child.ID)">Delete</a></td>
-                <td><a  [routerLink]="['/request','transport',child.Destination,child.ID]">Request-Driver</a></td>
             </tr>
         </tbody>
     </table>

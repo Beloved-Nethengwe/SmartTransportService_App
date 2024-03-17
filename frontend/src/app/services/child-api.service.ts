@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ChildDto, ChildModel } from '../types/Child';
 import { BehaviorSubject, Observable} from 'rxjs';
+import { chilRequestStatusDto } from '../types/Request';
 
 @Injectable({
   providedIn: 'root'
@@ -19,13 +20,19 @@ export class ChildApiService {
       return this.http.post(this.baseURL + 'children',body,{'headers':headers})
   }
 
-  getChildrenByParentID(parentID: string):Observable<any>{
+  GetChildrenWithNoRequestByParentID(parentID: string):Observable<any>{
     const url = this.baseURL+`children/parent/${parentID}`
     return this.http.get<any>(url)
   }
+
   deleteChild(id: any):Observable<ChildModel>{
     const url = this.baseURL+`children/${id}`
     return this.http.delete<ChildModel>(url)
+  }
+
+  GetChildrenWithPendingRequestByParentID(parentID: string):Observable<any>{
+    const url = this.baseURL+`children/parent/status/${parentID}`
+    return this.http.get<any>(url)
   }
 
   getChildById(id: any):Observable<ChildDto>{

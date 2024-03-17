@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../types/Auth';
+import { DriverDto, User } from '../types/Auth';
+import { transportByDestinationDto } from '../types/Request';
 
 
 @Injectable({
@@ -21,5 +22,15 @@ export class ParentApiService {
     getLoggedInParentRole(id: any):Observable<any>{
       const url = this.baseURL+`parents/${id}`
       return this.http.get<any>(url)
+    }
+
+    GetDriverByChildDestination(schoolName:string):Observable<any>{
+      const url = this.baseURL+`driver/transport-search/${schoolName}`
+      return this.http.get<any>(url)
+    }
+
+    RequestDriver(childId: string, driverId: string, parentId: string): Observable<any>{
+      const headers = {'content-type': 'application/json'}
+      return this.http.post(this.baseURL + `request-transport/${childId}/${driverId}/${parentId}`,{'headers':headers})
     }
   }

@@ -23,6 +23,8 @@ import { MatListModule } from '@angular/material/list';
 import { ChildDetailsComponent } from './components/child-details/child-details.component';
 import { RequestsComponent } from './components/requests/requests.component';
 import { RequestRideComponent } from './components/request-ride/request-ride.component';
+import { PendingRequestComponent } from './components/pending-request/pending-request.component';
+import { AcceptedRequestComponent } from './components/accepted-request/accepted-request.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { RequestRideComponent } from './components/request-ride/request-ride.com
     ChildDetailsComponent,
     RequestsComponent,
     RequestRideComponent,
+    PendingRequestComponent,
+    AcceptedRequestComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +60,8 @@ import { RequestRideComponent } from './components/request-ride/request-ride.com
     MatSidenavModule,
     MatListModule,
     RouterLink,
-    RouterLinkActive 
+    RouterLinkActive ,
+    MatIconModule
 
 ]
 ,

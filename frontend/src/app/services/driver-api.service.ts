@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from 'firebase/auth';
 import { Observable } from 'rxjs';
 import { DriverDto } from '../types/Auth';
 
@@ -23,9 +22,6 @@ export class DriverApiService {
       return this.http.get<any>(url)
     }
 
-  GetDriverByChildDestination(schoolName:string):Observable<DriverDto[]>{
-    const url = this.baseURL+`driver/transport-search/${schoolName}}`
-    return this.http.get<DriverDto[]>(url)
-  }
+  
 
 }

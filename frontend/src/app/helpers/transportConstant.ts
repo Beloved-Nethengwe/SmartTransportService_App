@@ -24,6 +24,18 @@ export const TransportConstant ={
             route: 'request',
             roles:['2']
         },
+        {
+            icon: 'pending',
+            label: 'Pending',
+            route: 'pending',
+            roles:['1']
+        },
+        {
+            icon: 'done',
+            label: 'Accepted',
+            route: 'accepted',
+            roles:['1']
+        },
 
     ]
 }

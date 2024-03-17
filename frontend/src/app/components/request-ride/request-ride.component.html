@@ -1,1 +1,26 @@
-<p>request-ride works!</p>
+<div class="container my-5">
+    <table class="table" *ngIf="driver$ && driver$.length>0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>CellphoneNumber</th>
+                <th>SchoolName</th>
+                <th></th>
+                <th>Request</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let driver of driver$">
+                <td>{{driver.IDNumber}}</td>
+                <td>{{driver.Name}}</td>
+                <td>{{driver.Surname}}</td>
+                <td>{{driver.CellphoneNumber}}</td>
+                <td>{{driver.SchoolName}}</td>
+                <td></td>
+                <td><a  (click)="makeRequest(driver.ID)">Request-Driver</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

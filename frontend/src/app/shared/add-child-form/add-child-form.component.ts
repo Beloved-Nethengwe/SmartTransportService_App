@@ -40,7 +40,6 @@ export class AddChildFormComponent {
     
     console.log('uuid along with child: ' ,this.finalUuid);
     console.log('formData' ,this.form);
-    
     this.childApiService.addChild(this.form)
     .subscribe(data=>{
       console.log('DATA',data);

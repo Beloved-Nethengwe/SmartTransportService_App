@@ -14,21 +14,21 @@ export class ChildDetailsComponent implements OnInit {
   finalUuid:any
   public childrenDetail$:any[] = [];
 
-  constructor(private authService:AuthService, private childApiService:ChildApiService,private sessionHelper: SessionHelper,private router:Router){}
+  constructor(private childApiService:ChildApiService,private sessionHelper: SessionHelper,private router:Router){}
   
   ngOnInit(): void {
     this.finalUuid= this.sessionHelper.getItem("currentUser")
-    this.getChildren(this.finalUuid)
+    this.GetChildrenWithNoRequestByParentID(this.finalUuid)
   }
 
-  getChildren(ParentID:string): void{
+  GetChildrenWithNoRequestByParentID(ParentID:string): void{
     console.log(this.finalUuid);
     
-    this.childApiService.getChildrenByParentID(ParentID)
+    this.childApiService.GetChildrenWithNoRequestByParentID(ParentID)
     .subscribe(
       (data)=>{
-        console.log("child data",data.children);
-        this.childrenDetail$=data.children
+        console.log("child data",data.transportDestination);
+        this.childrenDetail$=data.transportDestination
         
         
       })

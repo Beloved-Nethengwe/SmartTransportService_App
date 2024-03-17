@@ -7,6 +7,9 @@ import { EditChildComponent } from './components/edit-child/edit-child.component
 import { SideNavComponent } from './shared/side-nav/side-nav.component';
 import { ChildDetailsComponent } from './components/child-details/child-details.component';
 import { RequestsComponent } from './components/requests/requests.component';
+import { RequestRideComponent } from './components/request-ride/request-ride.component';
+import { PendingRequestComponent } from './components/pending-request/pending-request.component';
+import { AcceptedRequestComponent } from './components/accepted-request/accepted-request.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/login',pathMatch:'full'},
@@ -17,7 +20,9 @@ const routes: Routes = [
   {path:'children/edit/:id', component:EditChildComponent},
   {path:'child/details', component:ChildDetailsComponent}, //1:parent
   {path:'request', component:RequestsComponent}, //2:driver
-  {path:'request/transport/:schoolName', component:RequestsComponent}, //2:driver
+  {path:'request/transport/:child_destination/:id', component:RequestRideComponent}, //2:driver
+  {path:'pending', component:PendingRequestComponent}, //2:parent
+  {path:'accepted', component:AcceptedRequestComponent}, //2:parent
 
 ];
 
