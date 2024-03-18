@@ -1,5 +1,4 @@
-<p>pending-request works!</p>
-<div class="container my-5">
+<!-- <div class="container my-5">
     <table class="table" >
         <thead>
             <tr>
@@ -19,4 +18,56 @@
             </tr>
         </tbody>
     </table>
-</div>
+</div> -->
+
+<section class="children-list">
+    <h3>Pending Requests</h3>
+    <div class="list" *ngFor="let child of childrenDetail$">
+
+        <div class="children-item">
+            <div class="children-content">
+                <input type="text" value="child.Name" readonly/>
+            </div>
+
+            <div class="actions">
+                <button class="view">View Child</button>
+            </div>
+        </div>
+        <div class="children-item">
+            <div class="children-content">
+                <input type="text" value="Jane Doe" readonly/>
+            </div>
+
+            <div class="actions">
+                <button class="view">View Child</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- A hardcoded list to see the style -->
+    <div class="list">
+
+        <div class="children-item">
+            <div class="children-content">
+                <input type="text" value="John Doe" readonly/>
+            </div>
+
+            <div class="actions">
+                <!-- make it work like the add button add-child-form
+                just there'll be two buttons one for editting and another for deleting -->
+                <button class="view">View Child</button>
+            </div>
+        </div>
+        <div class="children-item">
+            <div class="children-content">
+                <input type="text" value="Jane Doe" readonly/>
+            </div>
+
+            <div class="actions">
+                <button class="view">View Child</button>
+            </div>
+        </div>
+
+    </div>
+</section>
