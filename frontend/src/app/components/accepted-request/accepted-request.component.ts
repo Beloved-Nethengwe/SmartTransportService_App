@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './accepted-request.component.css'
 })
 export class AcceptedRequestComponent {
+  
 
 }

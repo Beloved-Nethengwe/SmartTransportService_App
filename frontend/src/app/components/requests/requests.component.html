@@ -1,1 +1,27 @@
-<p>requests works!</p>
+
+<div class="container my-5">
+    <table class="table" >
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Allergy</th>
+                <th>Destination</th>
+                <th>Cell Number</th>
+                <th>Parent Name</th>
+                <th></th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let req of requestDetails$">
+                <td>{{req.Name}}</td>
+                <td>{{req.Allergy}}</td>
+                <td>{{req.Destination}}</td>
+                <td>{{req.CellphoneNumber}}</td>
+                <td>{{req.P_Name}}</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

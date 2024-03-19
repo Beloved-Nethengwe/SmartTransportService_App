@@ -22,6 +22,11 @@ export class DriverApiService {
       return this.http.get<any>(url)
     }
 
-  
+  getRequestsForDriver(driverID:string):Observable<any>{
+    const url = this.baseURL+`driver/transport-request/${driverID}`
+    return this.http.get<any>(url)
+  }
+
+  acceptRequests(){}
 
 }

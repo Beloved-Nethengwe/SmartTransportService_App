@@ -24,7 +24,7 @@ export class SideNavComponent implements OnInit {
   loggedInName:any
   constructor(
     private _router:Router,  
-    private _sessionHelper:SessionHelper, 
+
     private authService:AuthService,
     ){
     

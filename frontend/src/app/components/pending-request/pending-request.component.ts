@@ -24,7 +24,6 @@ export class PendingRequestComponent implements OnInit {
     .subscribe(
       (data)=>{
         this.childrenDetail$=data.childRequestStatus
-      })
+    })
   }
-
 }

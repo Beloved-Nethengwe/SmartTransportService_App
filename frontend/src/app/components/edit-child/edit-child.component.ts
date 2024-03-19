@@ -21,7 +21,6 @@ export class EditChildComponent implements OnInit{
   publicId:any;
   constructor(private route: ActivatedRoute, private router:Router, private childApiService:ChildApiService){}
   ngOnInit(): void {
-    console.log("hello");
     
     this.route.paramMap.subscribe({
       next: (params)=>{
@@ -32,7 +31,7 @@ export class EditChildComponent implements OnInit{
           .subscribe({
             next:(response:any)=>{
               this.childDetails=response.post
-
+              
             }
           })
         }
