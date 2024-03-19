@@ -1,4 +1,4 @@
-.table {
+/* .table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ddd;
@@ -20,7 +20,7 @@
     background-color: #f9f9f9;
   }
   
-  /* Style the link in the last column */
+  /* Style the link in the last column *//*
   .table a {
     color: #007bff;
     text-decoration: none;
@@ -28,4 +28,64 @@
   
   .table a:hover {
     text-decoration: underline;
-  }
+  } */
+
+h3 {
+  color: #313154;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.children-list {
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.children-list .list {
+    margin: 1rem 0;
+}
+
+.children-list .children-item {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.children-item .children-content {
+    flex: 1 1 0%;
+}
+
+.children-content input {
+    color: #313154;
+    font-size: 1.125rem;
+    width: 100%;
+}
+
+.children-item .actions {
+    display: flex;
+    align-items: center;
+}
+
+.children-item .actions button {
+    display: block;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    color:#fff;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    font-size: 0.9rem;
+}
+
+.children-item .actions button:hover {
+    opacity: 0.75;
+}
+
+.children-item .actions .view {
+    margin-right: 0.5rem;
+    background-color: #ea40a4;
+}
