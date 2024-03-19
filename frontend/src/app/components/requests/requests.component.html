@@ -10,7 +10,6 @@
                 <th>Parent Name</th>
                 <th></th>
                 <th></th>
-
             </tr>
         </thead>
         <tbody>
@@ -20,7 +19,9 @@
                 <td>{{req.Destination}}</td>
                 <td>{{req.CellphoneNumber}}</td>
                 <td>{{req.P_Name}}</td>
+                <td>{{req.Id}}</td>
                 <td></td>
+                <td><a (click)="acceptRequest(req.Id)">Accept</a></td>
             </tr>
         </tbody>
     </table>

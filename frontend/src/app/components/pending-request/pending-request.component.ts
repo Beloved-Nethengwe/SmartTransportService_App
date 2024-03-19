@@ -12,7 +12,7 @@ export class PendingRequestComponent implements OnInit {
   finalUuid:any
   public childrenDetail$:any[] = [];
 
-  constructor(private childApiService:ChildApiService,private sessionHelper: SessionHelper,private router:Router){}
+  constructor(private childApiService:ChildApiService,private sessionHelper: SessionHelper){}
   
   ngOnInit(): void {
     this.finalUuid= this.sessionHelper.getItem("currentUser")

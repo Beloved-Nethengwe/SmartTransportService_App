@@ -1,1 +1,16 @@
-<p>accepted-request works!</p>
+<section class="children-list">
+    <h3>Accepted Requests</h3>
+    <div class="list" *ngFor="let child of childrenDetail$">
+
+        <div class="children-item">
+            <div class="children-content">
+                {{child.Name}}
+            </div>
+
+            <div class="actions">
+                <button [routerLink]="['/children','edit',child.ID]" class="view">View Child</button>
+            </div>
+        </div>
+
+    </div>
+</section>

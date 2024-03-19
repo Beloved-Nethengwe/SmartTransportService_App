@@ -35,6 +35,11 @@ export class ChildApiService {
     return this.http.get<any>(url)
   }
 
+  GetChildrenWithAssignedRequestByParentID(parentID: string):Observable<any>{
+    const url = this.baseURL+`children/parent/status/assigned/${parentID}`
+    return this.http.get<any>(url)
+  }
+
   getChildById(id: any):Observable<ChildDto>{
     const url = this.baseURL+`children/${id}`
     return this.http.get<ChildDto>(url)

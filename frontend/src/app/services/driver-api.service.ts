@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DriverDto } from '../types/Auth';
+import { AcceptRequestDto } from '../types/Request';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,11 @@ export class DriverApiService {
     return this.http.get<any>(url)
   }
 
-  acceptRequests(){}
+  acceptRequests(acceptDto:AcceptRequestDto):Observable<any>{
+    const headers = {'content-type': 'application/json'}
+    const body =JSON.stringify(acceptDto);
+    const url = this.baseURL+`driver/accept-request/${acceptDto.childId}/${acceptDto.driverId}`
+    return this.http.post(url,body,{'headers':headers})
+  }
 
 }

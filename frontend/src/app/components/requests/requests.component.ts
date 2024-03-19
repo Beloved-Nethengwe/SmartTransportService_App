@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionHelper } from '../../helpers/sessionStorage.helper';
 import { DriverApiService } from '../../services/driver-api.service';
+import { AcceptRequestDto } from '../../types/Request';
 
 @Component({
   selector: 'app-requests',
@@ -10,7 +11,10 @@ import { DriverApiService } from '../../services/driver-api.service';
 export class RequestsComponent implements OnInit{
   finalUuid:any
   public requestDetails$:any[] = [];
-
+  AcceptModel:AcceptRequestDto={
+    childId:'',
+    driverId:''
+  }
   constructor(private sessionHelper: SessionHelper, private driverApiService: DriverApiService){}
 
   ngOnInit(): void {
@@ -26,5 +30,19 @@ export class RequestsComponent implements OnInit{
         console.log(this.requestDetails$);
       }
     )
+  }
+
+  acceptRequest(childId:any){
+    this.AcceptModel.childId = childId;
+    this.AcceptModel.driverId=this.sessionHelper.getItem("currentUser") as string;
+    console.log(this.AcceptModel.childId);
+    console.log(this.AcceptModel.driverId);
+    
+    this.driverApiService.acceptRequests(this.AcceptModel)
+    .subscribe({
+      next:(data)=>{
+        console.log(data);
+      }
+    })
   }
 }

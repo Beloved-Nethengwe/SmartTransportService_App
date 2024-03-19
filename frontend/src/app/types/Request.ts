@@ -16,3 +16,8 @@ export interface chilRequestStatusDto{
 	Destination: string
 	Status:      string
 }
+
+export interface AcceptRequestDto{
+    childId: string
+    driverId:string
+}
