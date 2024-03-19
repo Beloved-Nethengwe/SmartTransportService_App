@@ -26,46 +26,11 @@
 
         <div class="children-item">
             <div class="children-content">
-                <input type="text" value="child.Name" readonly/>
+                {{child.Name}}
             </div>
 
             <div class="actions">
-                <button class="view">View Child</button>
-            </div>
-        </div>
-        <div class="children-item">
-            <div class="children-content">
-                <input type="text" value="Jane Doe" readonly/>
-            </div>
-
-            <div class="actions">
-                <button class="view">View Child</button>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- A hardcoded list to see the style -->
-    <div class="list">
-
-        <div class="children-item">
-            <div class="children-content">
-                <input type="text" value="John Doe" readonly/>
-            </div>
-
-            <div class="actions">
-                <!-- make it work like the add button add-child-form
-                just there'll be two buttons one for editting and another for deleting -->
-                <button class="view">View Child</button>
-            </div>
-        </div>
-        <div class="children-item">
-            <div class="children-content">
-                <input type="text" value="Jane Doe" readonly/>
-            </div>
-
-            <div class="actions">
-                <button class="view">View Child</button>
+                <button [routerLink]="['/children','edit',child.ID]" class="view">View Child</button>
             </div>
         </div>
 
