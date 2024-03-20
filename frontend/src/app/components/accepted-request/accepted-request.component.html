@@ -1,16 +1,105 @@
-<section class="children-list">
-    <h3>Accepted Requests</h3>
-    <div class="list" *ngFor="let child of childrenDetail$">
+<body>
+    <main class="section">
+        <h1>Accepted Requests</h1>
+        <section class="section-body">
+            <table class="children-list">
+                <div id="header1">
+                    <div class="children-item">
+                        <thead class="children-content">
+                            <tr>
+                                <th>
+                                    <input type="text" value="Child Name" readonly/>
+                                </th>
+                                <th>
+                                    <input type="text" value="School Name" readonly/>
+                                </th>
+                                <th>
+                                    <input type="text" value="Status" readonly/>
+                                </th>
+                                <th>
+                                    <input type="text" value="Request" readonly/>
+                                </th>
+                                <th>
+                                    <input type="text" value="View Child" readonly/>
+                                </th>
+                            </tr>
+                        </thead>
+                    </div>
+                </div>
+                <div class="list" *ngFor="let child of childrenDetail$">
+                    <tbody>
+                        <tr class="children-item space">
+                            <td class="children-content"><input type="text" value=""></td>
+                            <td class="children-content"><input type="text" value=""></td>
+                            <td class="children-content"><input type="text" value=""></td>
+                            <td class="children-content"><input type="text" value=""></td>
+                            <td class="children-content"><input type="text" value=""></td>
+                        </tr>
 
-        <div class="children-item">
-            <div class="children-content">
-                {{child.Name}}
-            </div>
+                        <tr class="children-item">
+                            <td class="children-content">
+                                <input type="text" value="child.Name" readonly/>
+                            </td>
+                            <td class="children-content"><input type="text" value="child.Destination" readonly/></td>
+                            <td class="children-content"><input type="text" value="child.Status" readonly/></td>
+                            <td class="children-content"><input type="text" value="Pending" readonly/></td>
+                            <td class="children-content">
+                                <div class="actions">
+                                    <button class="view">View Child</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </div>
+                <div class="list" >
+                    <tbody>
+                        <tr class="children-item space">
+                            <td class="children-content"><input type="text" value=""></td>
+                            <td class="children-content"><input type="text" value=""></td>
+                            <td class="children-content"><input type="text" value=""></td>
+                            <td class="children-content"><input type="text" value=""></td>
+                            <td class="children-content"><input type="text" value=""></td>
+                        </tr>
 
-            <div class="actions">
-                <button [routerLink]="['/children','edit',child.ID]" class="view">View Child</button>
-            </div>
-        </div>
+                        <tr class="children-item">
+                            <td class="children-content">
+                                <input type="text" value="John Doe" readonly/>
+                            </td>
+                            <td class="children-content"><input type="text" value="Nethengwe Academy" readonly/></td>
+                            <td class="children-content"><input type="text" value="Alive" readonly/></td>
+                            <td class="children-content"><input type="text" value="Pending" readonly/></td>
+                            <td class="children-content">
+                                <div class="actions">
+                                    <button class="view"><a [routerLink]="['/children','edit']">View Child</a></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </div>
+            </table>
+        </section>
+    </main>
+</body>
 
-    </div>
-</section>
+<!-- <div class="container my-5">
+    <table class="table" >
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>SchoolName</th>
+                <th></th>
+                <th></th>
+                <th>Request</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let child of childrenDetail$">
+                <td>{{child.Name}}</td>
+                <td>{{child.Destination}}</td>
+                <td>{{child.Status}}</td>
+                <td><a [routerLink]="['/children','edit',child.ID]">View</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+
