@@ -1,40 +1,110 @@
-/* .table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #ddd;
-  }
-  
-  .table th,
-  .table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .table th {
-    background-color: #f5f5f5;
-    font-weight: bold;
-  }
-  
-  .table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  /* Style the link in the last column *//*
-  .table a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .table a:hover {
-    text-decoration: underline;
-  } */
+body {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-h3 {
-  color: #313154;
-  font-size: 1rem;
-  font-weight: 400;
-  margin-bottom: 0.5rem;
+main.section {
+  width: 82vw;
+  height: 80vh;
+  
+  backdrop-filter: blur(7px);
+  box-shadow: 0 0.4rem 0.8rem #0005;
+  border-radius: 0.8rem;
+  
+  overflow: hidden;
+}
+
+h1 {
+  padding: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.section-body{
+  height: calc(89% - 1.5rem);
+  overflow: auto;
+}
+
+.section-body::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.section-body::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-color: #0004;
+  visibility: hidden;
+}
+
+.section-body:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+
+#header1 {
+  margin: 1rem;
+  position: sticky;
+  top: 0;
+}
+
+table, th, td {
+  padding: 1rem;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+table, th {
+  position: sticky;
+  top: 0;
+}
+
+tbody tr:nth-child(odd) {
+  background: grey;
+  color: #ffffff;
+}
+
+tbody tr:hover {
+  cursor: pointer;
+}
+
+td img {
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  
+  vertical-align: middle;
+}
+
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.actions button {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  color:#fff;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  font-size: 0.9rem;
+}
+
+.actions button:hover {
+  opacity: 0.75;
+}
+
+.actions .view {
+  margin-right: 0.5rem;
+  background-color: #cc5500;
+}
+
+@media(max-width: 1000px){
+  td:not(:first-of-type) {
+    min-width: 12.1rem;
+  }
 }
 
 .children-list {
@@ -43,49 +113,60 @@ h3 {
 }
 
 .children-list .list {
-    margin: 1rem 0;
+  margin: 1rem;
 }
 
-.children-list .children-item {
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1rem;
+
+.children-item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
 }
 
 .children-item .children-content {
-    flex: 1 1 0%;
+  width: 100%;
+  flex: 1 1 0%;
 }
 
 .children-content input {
-    color: #313154;
-    font-size: 1.125rem;
-    width: 100%;
+  color: #313154;
+  font-size: 1.125rem;
+  width: 100%;
+}
+
+tbody tr:nth-child(odd) input {
+  background: rgba(128, 128, 128, 0.5);
+  color: #ffffff;
 }
 
 .children-item .actions {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .children-item .actions button {
-    display: block;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    color:#fff;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-    font-size: 0.9rem;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  color:#fff;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  font-size: 0.9rem;
 }
 
 .children-item .actions button:hover {
-    opacity: 0.75;
+  opacity: 0.75;
 }
 
 .children-item .actions .view {
-    margin-right: 0.5rem;
-    background-color: #ea40a4;
+  background-color: #ea40a4;
+} 
+
+.space {
+  visibility: hidden;
+  height: 0;
 }
