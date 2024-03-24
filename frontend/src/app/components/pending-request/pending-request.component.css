@@ -170,3 +170,7 @@ tbody tr:nth-child(odd) input {
   visibility: hidden;
   height: 0;
 }
+
+input{
+  outline: none;
+}

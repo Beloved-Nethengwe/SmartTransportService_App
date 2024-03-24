@@ -8,19 +8,19 @@
                         <thead class="children-content">
                             <tr>
                                 <th>
-                                    <input type="text" value="Child Name" readonly/>
+                                    <input value="Child Name" readonly/>
                                 </th>
                                 <th>
-                                    <input type="text" value="School Name" readonly/>
+                                    <input value="School Name" readonly/>
                                 </th>
                                 <th>
-                                    <input type="text" value="Status" readonly/>
+                                    <input value="Status" readonly/>
                                 </th>
                                 <th>
-                                    <input type="text" value="Request" readonly/>
+                                    <input value="Request" readonly/>
                                 </th>
                                 <th>
-                                    <input type="text" value="View Child" readonly/>
+                                    <input value="View Child" readonly/>
                                 </th>
                             </tr>
                         </thead>
@@ -38,39 +38,20 @@
 
                         <tr class="children-item">
                             <td class="children-content">
-                                <input type="text" value="child.Name" readonly/>
+                                <input type="text" [value]="child.Name" readonly/>
                             </td>
-                            <td class="children-content"><input type="text" value="child.Destination" readonly/></td>
-                            <td class="children-content"><input type="text" value="child.Status" readonly/></td>
-                            <td class="children-content"><input type="text" value="Pending" readonly/></td>
+                            <td class="children-content">
+                                <input type="text" [value]="child.Destination" readonly/>
+                            </td>
+                            <td class="children-content">
+                                <input type="text" [value]="child.Status" readonly/>
+                            </td>
+                            <td class="children-content"></td>
                             <td class="children-content">
                                 <div class="actions">
-                                    <button class="view">View Child</button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </div>
-                <div class="list" >
-                    <tbody>
-                        <tr class="children-item space">
-                            <td class="children-content"><input type="text" value=""></td>
-                            <td class="children-content"><input type="text" value=""></td>
-                            <td class="children-content"><input type="text" value=""></td>
-                            <td class="children-content"><input type="text" value=""></td>
-                            <td class="children-content"><input type="text" value=""></td>
-                        </tr>
-
-                        <tr class="children-item">
-                            <td class="children-content">
-                                <input type="text" value="John Doe" readonly/>
-                            </td>
-                            <td class="children-content"><input type="text" value="Nethengwe Academy" readonly/></td>
-                            <td class="children-content"><input type="text" value="Alive" readonly/></td>
-                            <td class="children-content"><input type="text" value="Pending" readonly/></td>
-                            <td class="children-content">
-                                <div class="actions">
-                                    <button class="view"><a [routerLink]="['/children','edit']">View Child</a></button>
+                                    <a [routerLink]="['/children','edit',child.ID]">
+                                        <button class="view">View child</button>
+                                    </a>
                                 </div>
                             </td>
                         </tr>
