@@ -36,6 +36,12 @@ export const TransportConstant ={
             route: 'accepted',
             roles:['1']
         },
+        {
+            icon: 'map',
+            label: 'Maps',
+            route: 'maps',
+            roles:['1','2']
+        },
 
     ]
 }
