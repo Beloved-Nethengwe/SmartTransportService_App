@@ -14,13 +14,10 @@
                                     <input value="School Name" readonly/>
                                 </th>
                                 <th>
-                                    <input value="Status" readonly/>
+                                    <input value="Request Status" readonly/>
                                 </th>
                                 <th>
-                                    <input value="Request" readonly/>
-                                </th>
-                                <th>
-                                    <input value="View Child" readonly/>
+                                    <input value="      View Child" readonly/>
                                 </th>
                             </tr>
                         </thead>
@@ -46,7 +43,6 @@
                             <td class="children-content">
                                 <input type="text" [value]="child.Status" readonly/>
                             </td>
-                            <td class="children-content"></td>
                             <td class="children-content">
                                 <div class="actions">
                                     <a [routerLink]="['/children','edit',child.ID]">

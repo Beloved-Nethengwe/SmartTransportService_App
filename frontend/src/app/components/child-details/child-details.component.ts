@@ -33,12 +33,4 @@ export class ChildDetailsComponent implements OnInit {
         
       })
   }
-
-  deleteChild(id:any,){
-    this.childApiService.deleteChild(id)
-    .subscribe({
-      next: (data)=>{
-        this.router.navigate(['home'])
-      }})
-  }
 }

@@ -25,6 +25,9 @@ import { RequestsComponent } from './components/requests/requests.component';
 import { RequestRideComponent } from './components/request-ride/request-ride.component';
 import { PendingRequestComponent } from './components/pending-request/pending-request.component';
 import { AcceptedRequestComponent } from './components/accepted-request/accepted-request.component';
+import { GoogleMapsModule } from "@angular/google-maps";
+import { MapsComponent } from './components/maps/maps.component';
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 
 @NgModule({
   declarations: [
@@ -40,8 +43,10 @@ import { AcceptedRequestComponent } from './components/accepted-request/accepted
     RequestRideComponent,
     PendingRequestComponent,
     AcceptedRequestComponent,
+    MapsComponent,
   ],
   imports: [
+    GoogleMapsModule,
     BrowserModule,
     AppRoutingModule,
     CommonModule,
@@ -61,8 +66,8 @@ import { AcceptedRequestComponent } from './components/accepted-request/accepted
     MatListModule,
     RouterLink,
     RouterLinkActive ,
-    MatIconModule
-
+    MatIconModule,
+    MatGoogleMapsAutocompleteModule.forRoot('AIzaSyCPbHF4QoDwahXKUs0EPfnjrXz10e_Sl6A')
 ]
 ,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

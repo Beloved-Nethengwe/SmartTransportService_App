@@ -54,5 +54,13 @@ export class EditChildComponent implements OnInit{
     )
   }
 
+  deleteChild(){
+    this.childApiService.deleteChild(this.publicId)
+    .subscribe({
+      next: (data)=>{
+        this.router.navigate(['/home'])
+      }})
+  }
+
 
 }

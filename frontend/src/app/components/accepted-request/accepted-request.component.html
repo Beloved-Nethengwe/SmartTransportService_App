@@ -38,39 +38,16 @@
 
                         <tr class="children-item">
                             <td class="children-content">
-                                <input type="text" value="child.Name" readonly/>
+                                <input type="text" [value]="child.Name" readonly/>
                             </td>
-                            <td class="children-content"><input type="text" value="child.Destination" readonly/></td>
-                            <td class="children-content"><input type="text" value="child.Status" readonly/></td>
-                            <td class="children-content"><input type="text" value="Pending" readonly/></td>
+                            <td class="children-content"><input type="text" [value]="child.Destination" readonly/></td>
+                            <td class="children-content"><input type="text" [value]="child.Status" readonly/></td>
+                            <td class="children-content"><input type="text" [value]="child.Allergy" readonly/></td>
                             <td class="children-content">
                                 <div class="actions">
-                                    <button class="view">View Child</button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </div>
-                <div class="list" >
-                    <tbody>
-                        <tr class="children-item space">
-                            <td class="children-content"><input type="text" value=""></td>
-                            <td class="children-content"><input type="text" value=""></td>
-                            <td class="children-content"><input type="text" value=""></td>
-                            <td class="children-content"><input type="text" value=""></td>
-                            <td class="children-content"><input type="text" value=""></td>
-                        </tr>
-
-                        <tr class="children-item">
-                            <td class="children-content">
-                                <input type="text" value="John Doe" readonly/>
-                            </td>
-                            <td class="children-content"><input type="text" value="Nethengwe Academy" readonly/></td>
-                            <td class="children-content"><input type="text" value="Alive" readonly/></td>
-                            <td class="children-content"><input type="text" value="Pending" readonly/></td>
-                            <td class="children-content">
-                                <div class="actions">
-                                    <button class="view"><a [routerLink]="['/children','edit']">View Child</a></button>
+                                    <a [routerLink]="['/children','edit',child.ID]">
+                                        <button class="view">View child</button>
+                                    </a>
                                 </div>
                             </td>
                         </tr>
@@ -81,25 +58,4 @@
     </main>
 </body>
 
-<!-- <div class="container my-5">
-    <table class="table" >
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>SchoolName</th>
-                <th></th>
-                <th></th>
-                <th>Request</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let child of childrenDetail$">
-                <td>{{child.Name}}</td>
-                <td>{{child.Destination}}</td>
-                <td>{{child.Status}}</td>
-                <td><a [routerLink]="['/children','edit',child.ID]">View</a></td>
-            </tr>
-        </tbody>
-    </table>
-</div> -->
 

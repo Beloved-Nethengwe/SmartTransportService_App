@@ -116,6 +116,9 @@ td img {
     margin: 1rem;
 }
 
+input{
+    outline: none;
+}
 
 .children-item {
     display: flex;

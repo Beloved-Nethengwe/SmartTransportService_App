@@ -52,10 +52,19 @@
     </div> 
     <div class="my-5 w-full">
       <label for="destination">destination</label>
-      <input type="destination" id="destination"
-      class="p-2  rounded w-full border"
-      placeholder="Destination " [(ngModel)]="form.Destination"
-      name="destination" #destination="ngModel" required> 
+      <input
+        type="destination"
+        id="destination"
+        class="p-2  rounded w-full border"
+        [(ngModel)]="form.Destination"
+        name="destination" 
+        #destination="ngModel" 
+        required
+        matGoogleMapsAutocomplete
+        country="za"
+        (onAutocompleteSelected)="onAutocompleteSelected($event)"
+        (onLocationSelected)="onLocationSelected($event)"
+        /> 
     </div>
     <p>
       <button
