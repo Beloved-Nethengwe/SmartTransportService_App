@@ -28,6 +28,7 @@ import { AcceptedRequestComponent } from './components/accepted-request/accepted
 import { GoogleMapsModule } from "@angular/google-maps";
 import { MapsComponent } from './components/maps/maps.component';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { AddDestinationComponent } from './shared/add-destination/add-destination.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
     PendingRequestComponent,
     AcceptedRequestComponent,
     MapsComponent,
+    AddDestinationComponent,
   ],
   imports: [
     GoogleMapsModule,

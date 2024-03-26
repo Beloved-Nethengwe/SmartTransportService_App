@@ -1,11 +1,10 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { ChildModel } from '../../types/Child';
-import { AuthService } from '../../services/auth.service';
 import { ChildApiService } from '../../services/child-api.service';
 import { SessionHelper } from '../../helpers/sessionStorage.helper';
-import { Router } from '@angular/router';
-import {Location, Appearance, GermanAddress} from '@angular-material-extensions/google-maps-autocomplete';
+import {Location,} from '@angular-material-extensions/google-maps-autocomplete';
 import PlaceResult = google.maps.places.PlaceResult;
+import { AddressAutocompleteService } from '../../services/address-autocomplete.service';
 
 @Component({
   selector: 'add-child-button',
@@ -25,7 +24,12 @@ export class AddChildFormComponent implements OnInit {
     ParentID:''
   }
 
-  constructor(private authService:AuthService, private childApiService:ChildApiService,private sessionHelper: SessionHelper,private router:Router){}
+  constructor(
+  private childApiService:ChildApiService,
+  private sessionHelper: SessionHelper,
+  private autocompletService: AddressAutocompleteService
+  ){}
+            
   ngOnInit(): void {
     this.finalUuid= this.sessionHelper.getItem("currentUser");
   }
@@ -49,18 +53,11 @@ export class AddChildFormComponent implements OnInit {
     })
   }
 
-
-  public latitude: number = 0;
-  public longitude: number = 0;
-  public selectedAddress: PlaceResult | undefined;
-
   onAutocompleteSelected(result: PlaceResult) {
-    console.log('onAutocompleteSelected: ', result);
+    this.autocompletService.onAutocompleteSelected(result);
   }
 
   onLocationSelected(location: Location) {
-    console.log('onLocationSelected: ', location);
-    this.latitude = location.latitude;
-    this.longitude = location.longitude;
+    this.autocompletService.onLocationSelected(location)
   }
 }

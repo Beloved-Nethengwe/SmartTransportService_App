@@ -1,21 +1,66 @@
-<add-child-button></add-child-button>
-<div class="container my-5">
-    <table class="table" *ngIf="childrenDetail$ && childrenDetail$.length>0">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>SchoolName</th>
-                <th></th>
-                <th>Request</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let child of childrenDetail$">
-                <td>{{child.Name}}</td>
-                <td>{{child.Destination}}</td>
-                <td><a [routerLink]="['/children','edit',child.ID]">View</a></td>
-                <td><a  [routerLink]="['/request','transport',child.Destination,child.ID]">Request-Driver</a></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<add-child-button ></add-child-button>
+
+<body>
+    <main class="section">
+        <h1>Linked Children</h1>
+        <section class="section-body">
+            <table class="children-list">
+                <div id="header1">
+                    <div class="children-item">
+                        <thead class="children-content">
+                            <tr>
+                                <th>
+                                    <input value="Name" readonly/>
+                                </th>
+                                <th>
+                                    <input value="School Name" readonly/>
+                                </th>
+                                <th>
+                                    <input value="View Child" readonly/>
+                                </th>
+                                <th>
+                                    <input value="Request Driver" readonly/>
+                                </th>
+                            </tr>
+                        </thead>
+                    </div>
+                </div>
+                <div class="list" *ngFor="let child of childrenDetail$">
+                    <tbody>
+                        <tr class="children-item space">
+                            <td class="children-content"><input type="text" value=""></td>
+                            <td class="children-content"><input type="text" value=""></td>
+                            <td class="children-content"><input type="text" value=""></td>
+                            <td class="children-content"><input type="text" value=""></td>
+                            <td class="children-content"><input type="text" value=""></td>
+                        </tr>
+
+                        <tr class="children-item">
+                            <td class="children-content">
+                                <input type="text" [value]="child.Name" readonly/>
+                            </td>
+                            <td class="children-content">
+                                {{child.Destination}}
+                                <input type="text" [value]="child.Destination" readonly/>
+                            </td>
+                            <td class="children-content">
+                                <div class="actions">
+                                    <a [routerLink]="['/children','edit',child.ID]">
+                                        <button class="view">View child</button>
+                                    </a>
+                                </div>
+                            </td>
+                            <td class="children-content">
+                                <div class="actions">
+                                    <a [routerLink]="['/request','transport',child.Destination,child.ID]">
+                                        <button class="view">Browse Drivers</button>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </div>
+            </table>
+        </section>
+    </main>
+</body>

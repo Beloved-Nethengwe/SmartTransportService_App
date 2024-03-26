@@ -1,0 +1,15 @@
+<button
+  size="m"
+  tuiButton
+  tuiHint="Some text"
+  tuiHintDirection="top"
+  type="button"
+  (click)="showDialog()"
+>
+  Add Destination
+</button>
+<ng-template
+  let-observer
+  [tuiDialogOptions]="{label: 'Add Destination', size: 's'}"
+  [(tuiDialog)]="open"
+>
