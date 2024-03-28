@@ -1,15 +1,43 @@
 <button
-  size="m"
-  tuiButton
-  tuiHint="Some text"
-  tuiHintDirection="top"
-  type="button"
-  (click)="showDialog()"
+    size="m"
+    tuiButton
+    tuiHint="Some text"
+    tuiHintDirection="top"
+    type="button"
+    (click)="showDialog()"
 >
-  Add Destination
+    Add Destination
 </button>
 <ng-template
-  let-observer
-  [tuiDialogOptions]="{label: 'Add Destination', size: 's'}"
-  [(tuiDialog)]="open"
+    let-observer
+    [tuiDialogOptions]="{label: 'Add Destination', size: 's'}"
+    [(tuiDialog)]="open"
 >
+<form #myForm ="ngForm" (ngSubmit)="[observer.complete(),onSubmitForAddress()]">
+    <div class="my-5 w-full">
+        <label for="destination">Destination</label>
+        <input         type="destination"
+        id="destination"
+        class="p-2  rounded w-full border"
+        [(ngModel)]="form.SchoolName"
+        name="destination" 
+        #destination="ngModel" 
+        required
+        matGoogleMapsAutocomplete
+        country="za"
+        (onAutocompleteSelected)="onAutocompleteSelected($event)"
+        (onLocationSelected)="onLocationSelected($event)"> 
+        
+    </div> 
+    {{form.SchoolName}}
+    <p>
+        <button
+        tuiButton
+        [disabled]="myForm.form.invalid"
+            type="submit"  class="p-2 w-full rounded-full bg-blue-400 text-white" style="background-color: #3D6CE4; font-weight: bolder;"
+            >
+            Add Address
+    </button>
+    </p>
+</form>
+</ng-template>

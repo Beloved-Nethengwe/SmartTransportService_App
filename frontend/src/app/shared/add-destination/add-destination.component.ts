@@ -12,10 +12,10 @@ import {Location,} from '@angular-material-extensions/google-maps-autocomplete';
 })
 export class AddDestinationComponent implements OnInit {
   open:boolean = false;
-  finalUuid!:any
+  finalUuid:any
   form:DestinationDto={
     SchoolName:'',
-    DriverID: this.finalUuid
+    DriverID: ''
   }
 
   constructor(
@@ -34,7 +34,7 @@ export class AddDestinationComponent implements OnInit {
   onSubmitForAddress(){
     
     console.log(this.form);
-    
+    this.form.DriverID=this.finalUuid;
     console.log('uuid along with destination: ' ,this.finalUuid);
     console.log('formData' ,this.form);
     this.destinationApiService.addDestination(this.form)

@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { AfterViewInit, Component,OnInit } from '@angular/core';
 import { ChildModel } from '../../types/Child';
 import { ChildApiService } from '../../services/child-api.service';
 import { SessionHelper } from '../../helpers/sessionStorage.helper';
@@ -29,10 +29,11 @@ export class AddChildFormComponent implements OnInit {
   private sessionHelper: SessionHelper,
   private autocompletService: AddressAutocompleteService
   ){}
-            
+  
   ngOnInit(): void {
     this.finalUuid= this.sessionHelper.getItem("currentUser");
   }
+  
 
   showDialog(): void {
     this.open = true;
@@ -52,7 +53,7 @@ export class AddChildFormComponent implements OnInit {
       window.location.reload();
     })
   }
-
+  
   onAutocompleteSelected(result: PlaceResult) {
     this.autocompletService.onAutocompleteSelected(result);
   }

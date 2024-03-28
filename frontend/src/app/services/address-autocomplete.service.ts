@@ -13,7 +13,8 @@ export class AddressAutocompleteService {
   public selectedAddress: PlaceResult | undefined;
 
   onAutocompleteSelected(result: PlaceResult) {
-    console.log('onAutocompleteSelected: ', result);
+    console.log('onAutocompleteSelected: ', result.formatted_address
+    );
   }
 
   onLocationSelected(location: Location) {

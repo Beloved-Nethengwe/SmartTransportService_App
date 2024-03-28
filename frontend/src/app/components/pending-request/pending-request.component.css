@@ -167,6 +167,9 @@ tbody tr:nth-child(odd) input {
 } 
 
 .space {
+  padding: 0;
+  margin: 0;
+  border: 0;
   visibility: hidden;
   height: 0;
 }

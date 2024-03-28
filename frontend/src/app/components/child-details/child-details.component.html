@@ -25,6 +25,11 @@
                         </thead>
                     </div>
                 </div>
+                <div>
+                    <tbody>
+                        
+                    </tbody>
+                </div>
                 <div class="list" *ngFor="let child of childrenDetail$">
                     <tbody>
                         <tr class="children-item space">
@@ -41,7 +46,7 @@
                             </td>
                             <td class="children-content">
                                 {{child.Destination}}
-                                <input type="text" [value]="child.Destination" readonly/>
+                                <!-- <input type="text" [value]="child.Destination" readonly/> -->
                             </td>
                             <td class="children-content">
                                 <div class="actions">
@@ -52,7 +57,7 @@
                             </td>
                             <td class="children-content">
                                 <div class="actions">
-                                    <a [routerLink]="['/request','transport',child.Destination,child.ID]">
+                                    <a [routerLink]="['/request','transport',child.Destination,child.ID,child.Name]">
                                         <button class="view">Browse Drivers</button>
                                     </a>
                                 </div>

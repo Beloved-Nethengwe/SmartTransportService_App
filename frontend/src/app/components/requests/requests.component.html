@@ -1,4 +1,4 @@
-
+<app-add-destination></app-add-destination>
 <div class="container my-5">
     <table class="table" >
         <thead>
@@ -21,7 +21,7 @@
                 <td>{{req.P_Name}}</td>
                 <td>{{req.Id}}</td>
                 <td></td>
-                <td><a (click)="acceptRequest(req.Id)">Accept</a></td>
+                <td><a (click)="acceptRequest(req.Id);sendAcceptMailToParent(req.Email,req.Name)">Accept</a></td>
             </tr>
         </tbody>
     </table>

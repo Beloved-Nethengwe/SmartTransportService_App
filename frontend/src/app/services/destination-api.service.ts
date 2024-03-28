@@ -13,6 +13,6 @@ export class DestinationApiService {
   addDestination(destination: DestinationDto):Observable<Object>{
     const headers = {'content-type': 'application/json'}
     const body =JSON.stringify(destination);
-    return this.http.post(this.baseURL + '/destination',body,{'headers':headers})
+    return this.http.post(this.baseURL + 'destination',body,{'headers':headers})
 }
 }

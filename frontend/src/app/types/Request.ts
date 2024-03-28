@@ -5,6 +5,7 @@ export interface transportByDestinationDto {
     Surname :      string;
     CellphoneNumber: string;
     SchoolName :     string;
+    Email :     string;
 }
 
 export interface chilRequestStatusDto{

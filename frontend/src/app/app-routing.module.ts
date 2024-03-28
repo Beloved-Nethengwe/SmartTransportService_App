@@ -21,7 +21,7 @@ const routes: Routes = [
   {path:'children/edit/:id', component:EditChildComponent},
   {path:'child/details', component:ChildDetailsComponent}, //1:parent
   {path:'request', component:RequestsComponent}, //2:driver
-  {path:'request/transport/:child_destination/:id', component:RequestRideComponent}, //2:driver
+  {path:'request/transport/:child_destination/:id/:child_name', component:RequestRideComponent}, //2:driver
   {path:'pending', component:PendingRequestComponent}, //2:parent
   {path:'accepted', component:AcceptedRequestComponent}, //2:parent
   {path:'maps', component:MapsComponent}, //2:parent
