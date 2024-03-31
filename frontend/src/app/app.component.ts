@@ -28,6 +28,7 @@ export class AppComponent implements OnInit{
     if (
       this._router.isActive('/login', true) ||
       this._router.isActive('/register', true) ||
+      this._router.isActive('/reset', true) ||
       this._router.isActive('', true) 
     ) {
       return true;

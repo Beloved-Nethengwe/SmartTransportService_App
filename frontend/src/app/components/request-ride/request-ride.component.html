@@ -49,7 +49,10 @@
                             <td class="children-content">{{driver.Name}} {{driver.Surname}}</td>
                             <td class="children-content">{{driver.CellphoneNumber}}</td>
                             <td class="children-content">{{driver.SchoolName}}</td>
-                            <td class="children-content"><a (click)="makeRequest(driver.ID);sendRequestMailToDriver(driver.Email)">Request-Driver</a></td>
+                            <button (click)="makeRequest(driver.ID);sendRequestMailToDriver(driver.Email)">
+                                <ng-container *ngIf="isLoading">Requesting...</ng-container>
+                                <ng-container *ngIf="!isLoading">Request Ride</ng-container>
+                            </button>
 
                         </tr>
                     </tbody>

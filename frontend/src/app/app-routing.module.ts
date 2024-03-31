@@ -11,13 +11,16 @@ import { RequestRideComponent } from './components/request-ride/request-ride.com
 import { PendingRequestComponent } from './components/pending-request/pending-request.component';
 import { AcceptedRequestComponent } from './components/accepted-request/accepted-request.component';
 import { MapsComponent } from './components/maps/maps.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+
 
 const routes: Routes = [
   {path:'',redirectTo:'/login',pathMatch:'full'},
   {path:'login', component:LoginComponent},
+  {path:'reset', component:ResetPasswordComponent}, 
   {path:'register', component:RegisterComponent},
   {path:'',component:SideNavComponent,},
-  {path: 'home', component:HomeComponent}, //1: parent 2: driver
+  {path:'home', component:HomeComponent}, //1: parent 2: driver
   {path:'children/edit/:id', component:EditChildComponent},
   {path:'child/details', component:ChildDetailsComponent}, //1:parent
   {path:'request', component:RequestsComponent}, //2:driver

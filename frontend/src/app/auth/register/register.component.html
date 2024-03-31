@@ -7,6 +7,12 @@
     <div  *ngIf="showDriverForm">
         <form (ngSubmit)="submit()" class="p-4 border m-auto " #myForm="ngForm" style=" width: 90vw; border-radius:27px;  ">
             <h1 class="text-center text-xl"><b>Sign up to SmartTransport Kids As Parent</b></h1>
+            <div *ngIf="showSuccess()" class="form-success">
+                {{successMessage}}
+            </div>
+              <div *ngIf="showError()" class="form-fail">
+                {{errorMessage}}
+            </div>
             <div class="my-2 w-full">
                 <label for="firstname">First Name</label>
                 <input type="firstname" id="firstname"
@@ -99,6 +105,12 @@
     <div  *ngIf="!showDriverForm">
         <form (ngSubmit)="submitForDriver()" class="p-4 border m-auto " #myForm="ngForm" style=" width: 90vw; border-radius:27px;  ">
             <h1 class="text-center text-xl"><b>Sign up to SmartTransport Kids As Driver</b></h1>
+            <div *ngIf="showSuccess()" class="form-success">
+                {{successMessage}}
+            </div>
+              <div *ngIf="showError()" class="form-fail">
+                {{errorMessage}}
+            </div>
             <div class="my-2 w-full">
                 <label for="firstname">First Name</label>
                 <input type="firstname" id="firstname"

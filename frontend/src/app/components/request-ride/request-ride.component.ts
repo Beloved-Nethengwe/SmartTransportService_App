@@ -11,6 +11,7 @@ import { SendMailApiService } from '../../services/send-mail-api.service';
   styleUrl: './request-ride.component.css',
 })
 export class RequestRideComponent implements OnInit {
+  isLoading:boolean=false;
   publicID: any;
   publicChildName:string='';
   driver$: transportByDestinationDto[] = [];
@@ -43,6 +44,9 @@ export class RequestRideComponent implements OnInit {
   }
 
   makeRequest(driverId: string) {
+    if (this.isLoading) return;
+    this.isLoading=true;
+
     this.parentApiService
       .RequestDriver(
         this.publicID,
@@ -52,9 +56,11 @@ export class RequestRideComponent implements OnInit {
       .subscribe({
         next: (response) => {
           console.log('success', response);
+          this.isLoading = false;
         },
         error: (err) => {
           console.log(err);
+          this.isLoading = false;
         },
       });
   }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DriverDto, LoginForm, User } from '../types/Auth';
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword ,signOut} from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, sendPasswordResetEmail, signInWithEmailAndPassword ,signOut} from 'firebase/auth';
 import {  Router } from '@angular/router';
 import { ParentApiService } from './parent-api.service';
 
@@ -13,6 +13,10 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
 
+  successMessage: string = '';
+  errorMessage: string = '';
+  showSuccess: boolean = false;
+  showError: boolean = false;
   isAuthenticated:boolean=false;
   isLoading:boolean=false;
   passwordMatch:boolean =true;
@@ -127,13 +131,20 @@ export class AuthService {
         console.log("form with guid",form);
         this.parentApiService.addParent(form)
         .subscribe( (data: any)=>{
-        console.log("this is data uid",data); 
-        this.router.navigate(['/login'])
+          console.log("this is data uid",data); 
+          this.showSuccess = true;
+          setTimeout(() => {
+            this.showSuccess = false;
+            this.router.navigate(['/login'])
+          }, 5000);
         })
       }
 
     } catch (error:any) {
-      const errorCode = error.code;
+      this.showError = true;
+      setTimeout(() => {
+        this.showError = false;
+      }, 5000);
       const errorMessage = error.message;
       console.log(errorMessage);
     }
@@ -151,12 +162,19 @@ export class AuthService {
         this.driverApiService.addDriver(driverForm)
         .subscribe( (data: any)=>{
         console.log("this is data uid",data);
-        this.router.navigate(['/login']) 
+        this.showSuccess = true;
+          setTimeout(() => {
+            this.showSuccess = false;
+            this.router.navigate(['/login'])
+          }, 5000);
         })
       }
 
     } catch (error:any) {
-      const errorCode = error.code;
+      this.showError = true;
+      setTimeout(() => {
+        this.showError = false;
+      }, 5000);
       const errorMessage = error.message;
       console.log(errorMessage);
     }
@@ -176,6 +194,26 @@ export class AuthService {
     });
 
     this.localUserData.next(undefined)
+  }
+
+  forgotPassword(email:string){
+    const auth = getAuth();
+    sendPasswordResetEmail(auth,email).then(()=>{
+      this.showSuccess=true;
+      console.log('successfuly done');
+      setTimeout(() => {
+        this.showSuccess = false;
+        this.router.navigate(['/login'])
+      }, 5000);
+    }),
+    (err:any)=>{
+      this.showError = true;
+      setTimeout(() => {
+        this.showError = false;
+        this.router.navigate(['/login'])
+      }, 5000);
+    }
+    
   }
 
 }

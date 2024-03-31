@@ -29,6 +29,7 @@ import { GoogleMapsModule } from "@angular/google-maps";
 import { MapsComponent } from './components/maps/maps.component';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 import { AddDestinationComponent } from './shared/add-destination/add-destination.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { AddDestinationComponent } from './shared/add-destination/add-destinatio
     AcceptedRequestComponent,
     MapsComponent,
     AddDestinationComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     GoogleMapsModule,

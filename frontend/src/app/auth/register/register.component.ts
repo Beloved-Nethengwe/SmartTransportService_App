@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { DriverDto, User } from '../../types/Auth';;
@@ -10,8 +10,10 @@ import { ParentApiService } from '../../services/parent-api.service';
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
-export class RegisterComponent {
- showDriverForm: boolean = true;
+export class RegisterComponent{
+showDriverForm: boolean = true;
+successMessage: string = 'Your Account Has Been Registered. You Will Shortly Be Redirectected to Login';
+errorMessage: string = 'The Email You Are Registering With Already Exists';
 constructor(private router:Router, private authService: AuthService, private parentApiService: ParentApiService){}
 
   form: User ={
@@ -59,4 +61,14 @@ constructor(private router:Router, private authService: AuthService, private par
   isLoading(){
     return this.authService.isLoading;
   }
+
+  showSuccess(){
+    return this.authService.showSuccess;
+    
+  }
+
+  showError(){
+    return this.authService.showError;
+  }
+
 }

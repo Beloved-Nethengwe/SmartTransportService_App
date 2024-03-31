@@ -3,7 +3,7 @@
     Parent Sign in <span class="bg-white float-right">Driver Sign in</span>
 </div>
 <div style="margin-top: 5vh; ">
-    <form (ngSubmit)="submit()" #myForm ="ngForm" class="p-4 border m-auto " style=" width: 90vw; border-radius:27px;  ">
+    <form (ngSubmit)="[submit(),checkForUserByEmail()]" #myForm ="ngForm" class="p-4 border m-auto " style=" width: 90vw; border-radius:27px;  ">
         <h1 class="text-center text-xl"><b>Sign in to SmartTransport Kids</b></h1>
         <div class="my-5 w-full">
             <label for="email">Email</label>
@@ -17,7 +17,7 @@
         </div>
         <div class="my-5 w-full">
             <label for="password">Password </label> <span></span>
-            <label style="float: right; color: blue;">Fogot Password ?</label>
+            <label style="float: right; color: blue;"><a routerLink="/reset" >Fogot Password ?</a></label>
             <input type="password" id="password"
                 class="p-2  rounded w-full border" 
                 placeholder="Password" [(ngModel)]="form.password"
