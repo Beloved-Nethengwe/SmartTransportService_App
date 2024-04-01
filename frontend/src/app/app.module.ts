@@ -71,7 +71,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     RouterLink,
     RouterLinkActive ,
     MatIconModule,
-    MatGoogleMapsAutocompleteModule.forRoot('AIzaSyCPbHF4QoDwahXKUs0EPfnjrXz10e_Sl6A')
+    MatGoogleMapsAutocompleteModule.forRoot('AIzaSyBOexgiMK1CMiC3uRbpt8CBYcjbXonqEO4')
 ]
 ,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

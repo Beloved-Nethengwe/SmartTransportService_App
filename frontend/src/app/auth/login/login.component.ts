@@ -3,17 +3,23 @@ import { AuthService } from '../../services/auth.service';
 import { LoginForm } from '../../types/Auth';
 import { Router } from '@angular/router';
 import { ErrorHandlingService } from '../../services/error-handling.service';
+import { TrackingService} from '../../services/tracking.service';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent implements AfterViewInit  {
+export class LoginComponent implements AfterViewInit, OnInit  {
   @ViewChild('myForm') myForm: any;
-  constructor(private authService: AuthService,private router:Router, private errorHandlingService:ErrorHandlingService){}
+  constructor(private authService: AuthService,private router:Router, private errorHandlingService:ErrorHandlingService, private trackingService: TrackingService){}
   ngAfterViewInit(){
   
+  }
+
+  ngOnInit(): void {
+    // this.trackingService.getCurrentLocation()
   }
 
   form: LoginForm={

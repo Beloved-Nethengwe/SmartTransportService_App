@@ -15,10 +15,7 @@ export class MapsComponent implements OnInit{
       lng: 28.122180
   };
   zoom = 4;
-  moveMap(event: google.maps.MapMouseEvent) {
-      if (event.latLng != null) this.center = (event.latLng.toJSON());
-  }
-  move(event: google.maps.MapMouseEvent) {
-      if (event.latLng != null) this.display = event.latLng.toJSON();
-  }
+ 
+
+
 }
