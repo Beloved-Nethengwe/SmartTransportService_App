@@ -27,9 +27,9 @@ export class HomeComponent implements OnInit {
     let desLon = 0;
 
     let id = navigator.geolocation.watchPosition((position) => {
-      // console.log(
-      //   `lat: ${position.coords.latitude}, lon: ${position.coords.longitude}`
-      // );
+       console.log(
+         `lat: ${position.coords.latitude}, lon: ${position.coords.longitude}`
+       );
       const coords = position.coords;
       const latLng = [ coords.latitude, coords.longitude ];
       this.trackingService.updateMarker(latLng);

@@ -44,15 +44,18 @@
                             <td class="children-content"><input type="text" value=""></td>
                         </tr>
 
+                        
                         <tr class="children-item">
                             <td class="children-content">{{driver.IDNumber}}</td>
                             <td class="children-content">{{driver.Name}} {{driver.Surname}}</td>
                             <td class="children-content">{{driver.CellphoneNumber}}</td>
                             <td class="children-content">{{driver.SchoolName}}</td>
-                            <button (click)="makeRequest(driver.ID);sendRequestMailToDriver(driver.Email)">
-                                <ng-container *ngIf="isLoading">Requesting...</ng-container>
-                                <ng-container *ngIf="!isLoading">Request Ride</ng-container>
-                            </button>
+                            <td class="children-content">
+                                <button class="request" (click)="makeRequest(driver.ID);sendRequestMailToDriver(driver.Email)">
+                                    <ng-container *ngIf="isLoading">Requesting...</ng-container>
+                                    <ng-container *ngIf="!isLoading">Request Ride</ng-container>
+                                </button>
+                            </td>
 
                         </tr>
                     </tbody>

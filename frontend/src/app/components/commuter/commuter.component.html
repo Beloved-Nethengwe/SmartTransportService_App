@@ -1,0 +1,67 @@
+<body>
+  <main class="section">
+    <h1>Commuters</h1>
+    <section class="section-body">
+      <table class="children-list">
+        <div id="header1">
+          <div class="children-item">
+            <thead class="children-content">
+              <tr>
+                <th>
+                  <input value="Name" readonly />
+                </th>
+                <th>
+                  <input value="Surname" readonly />
+                </th>
+                <th>
+                  <input value="Allergy" readonly />
+                </th>
+                <th>
+                  <input value="Parent No." readonly />
+                </th>
+                <th>
+                  <input value="Pick Up" readonly />
+                </th>
+                <th>
+                  <input value="Destination" readonly />
+                </th>
+              </tr>
+            </thead>
+          </div>
+        </div>
+        <div class="list" *ngFor="let commuter of commutersDetails$">
+          <tbody>
+            <tr class="children-item space">
+              <td class="children-content"><input type="text" value=""></td>
+              <td class="children-content"><input type="text" value=""></td>
+              <td class="children-content"><input type="text" value=""></td>
+              <td class="children-content"><input type="text" value=""></td>
+              <td class="children-content"><input type="text" value=""></td>
+            </tr>
+
+            <tr class="children-item">
+              <td class="children-content">
+                {{commuter.Name}}
+              </td>
+              <td class="children-content">
+                {{commuter.Surname}}
+              </td>
+              <td class="children-content">
+                {{commuter.Allergy}}
+              </td>
+              <td class="children-content">
+                {{commuter.CellphoneNumber}}
+              </td>
+              <td class="children-content">
+                {{commuter.PickUp}}
+              </td>
+              <td class="children-content">
+                {{commuter.Destination}}
+              </td>
+            </tr>
+          </tbody>
+        </div>
+      </table>
+    </section>
+  </main>
+</body>

@@ -1,47 +1,53 @@
 export const TransportConstant ={
-    ApiEndPoints:{
+  ApiEndPoints:{
 
+  },
+  Patterns:{
+
+  },
+  menus:[
+    {
+      icon: 'home',
+      label: 'Home',
+      route: 'home',
+      roles:['1','2']
+  },
+    {
+      icon: 'person',
+      label: 'Child Details',
+      route: 'child/details',
+      roles:['1']
     },
-    Patterns:{
-
+    {
+      icon: 'emergency',
+      label: 'Requests',
+      route: 'request',
+      roles:['2']
     },
-    menus:[
-        {
-            icon: 'home',
-            label: 'Home',
-            route: 'home',
-            roles:['1','2']
-        },
-        {
-            icon: 'person',
-            label: 'Child Details',
-            route: 'child/details',
-            roles:['1']
-        },
-        {
-            icon: 'emergency',
-            label: 'Requests',
-            route: 'request',
-            roles:['2']
-        },
-        {
-            icon: 'pending',
-            label: 'Pending',
-            route: 'pending',
-            roles:['1']
-        },
-        {
-            icon: 'done',
-            label: 'Accepted',
-            route: 'accepted',
-            roles:['1']
-        },
-        {
-            icon: 'map',
-            label: 'Maps',
-            route: 'maps',
-            roles:['1','2']
-        },
-
-    ]
+    {
+      icon: 'pending',
+      label: 'Pending',
+      route: 'pending',
+      roles:['1']
+    },
+    {
+      icon: 'done',
+      label: 'Accepted',
+      route: 'accepted',
+      roles:['1']
+    },
+    {
+      icon: 'map',
+      label: 'Maps',
+      route: 'maps',
+      roles:['1','2']
+    },
+    ,
+    {
+      icon: 'commute',
+      label: 'Commuters',
+      route: 'commuter',
+      roles:['2']
+    },
+  ]
 }

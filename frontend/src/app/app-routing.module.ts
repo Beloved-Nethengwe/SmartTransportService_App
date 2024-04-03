@@ -12,6 +12,7 @@ import { PendingRequestComponent } from './components/pending-request/pending-re
 import { AcceptedRequestComponent } from './components/accepted-request/accepted-request.component';
 import { MapsComponent } from './components/maps/maps.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { CommuterComponent } from './components/commuter/commuter.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path:'pending', component:PendingRequestComponent}, //2:parent
   {path:'accepted', component:AcceptedRequestComponent}, //2:parent
   {path:'maps', component:MapsComponent}, //2:parent
+  {path:'commuter', component:CommuterComponent}, //2:parent
 
 ];
 

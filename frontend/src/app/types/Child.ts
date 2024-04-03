@@ -13,7 +13,7 @@ export interface ChildDto{
     Name:         string
 	Surname:      string
 	Allergy:      string
-	EmergContact: string
+	CellphoneNumber: string
 	PickUp:       string
 	Destination:  string
 }

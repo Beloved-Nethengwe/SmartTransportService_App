@@ -35,4 +35,9 @@ export class DriverApiService {
     return this.http.post(url,body,{'headers':headers})
   }
 
+  getCommuters(driverID: string):Observable<any>{
+    const url = this.baseURL+`driver/commuters/${driverID}`
+    return this.http.get<any>(url)
+  }
+
 }

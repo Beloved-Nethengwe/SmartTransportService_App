@@ -1,40 +1,49 @@
-<div style="background-color: lightslategray; height: 15vh; width: 30vw; margin: auto; margin-top: 5vh;"></div>
-<div class=" border rounded-full m-auto text-black bg-white text-left"  style="padding: 1em; width: 65vw;  margin-top: 5vh;">
-    Parent Sign in <span class="bg-white float-right">Driver Sign in</span>
-</div>
+<div style="background-color: transparent; height: 22vh; width: 30vw; margin: auto; margin-top: 5vh;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO4QxEMmFzZ2rhHMvykt6Y9IJZWMIiYstcYw&s" alt="image" style="margin: auto;"></div>
 <div style="margin-top: 5vh; ">
-    <form (ngSubmit)="[submit(),checkForUserByEmail()]" #myForm ="ngForm" class="p-4 border m-auto " style=" width: 90vw; border-radius:27px;  ">
-        <h1 class="text-center text-xl"><b>Sign in to SmartTransport Kids</b></h1>
-        <div class="my-5 w-full">
-            <label for="email">Email</label>
-            <input type="email" id="email"
-            class="p-2  rounded w-full border"
-            placeholder="Email Address" [(ngModel)]="form.email"
-            name="email" #email="ngModel" required> 
-        </div> 
-        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="bg-red-300 text-red-800 rounded">
-            Email field must be valid
-        </div>
-        <div class="my-5 w-full">
-            <label for="password">Password </label> <span></span>
-            <label style="float: right; color: blue;"><a routerLink="/reset" >Fogot Password ?</a></label>
-            <input type="password" id="password"
-                class="p-2  rounded w-full border" 
-                placeholder="Password" [(ngModel)]="form.password"
-                name="password" #password="ngModel" required>
-        </div>
-        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="bg-red-300 text-red-800 rounded">
-            Password field must be valid
-        </div>
-        <div class="my-5 w-full">
-            <button [disabled]="myForm.form.invalid" type="submit"  class="p-2 w-full rounded-full bg-blue-400 rounded text-white" style="background-color: #3D6CE4; font-weight: bolder;">
-                <ng-container *ngIf="isLoading()">Loading...</ng-container>
-                <ng-container *ngIf="!isLoading()">Login</ng-container>
-            </button>
-        </div>
-    </form>
+  <form 
+    (ngSubmit)="[submit()]" 
+    #myForm="ngForm" class="p-4 border m-auto "
+    style=" width: 90vw; border-radius:27px;">
+
+    <h1 class="text-center text-xl"><b>Sign in to SmartTransport Kids</b></h1>
+    
+    <div class="my-5 w-full">
+      <label for="email">Email</label>
+      <input type="email" id="email" class="p-2  rounded w-full border" placeholder="Email Address"
+        [(ngModel)]="form.email" name="email" #email="ngModel" required>
+    </div>
+
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="bg-red-300 text-red-800 rounded">
+      Email field must be valid
+    </div>
+
+    <div class="my-5 w-full">
+      <label for="password">Password </label> <span></span>
+      <label style="float: right; color: blue;"><a routerLink="/reset">Fogot Password ?</a></label>
+      <input type="password" id="password" class="p-2  rounded w-full border" placeholder="Password"
+        [(ngModel)]="form.password" name="password" #password="ngModel" required>
+    </div>
+
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="bg-red-300 text-red-800 rounded">
+      Password field must be valid
+    </div>
+
+    <div *ngIf="showError()" class="form-fail" style="text-align: center; color: red;">
+      {{showErrorMessage()}}
+    </div>
+
+    <div class="my-5 w-full">
+      <button [disabled]="myForm.form.invalid" type="submit"
+        class="p-2 w-full rounded-full bg-blue-400 rounded text-white"
+        style="background-color: #3D6CE4; font-weight: bolder;">
+        <ng-container *ngIf="isLoading()">Loading...</ng-container>
+        <ng-container *ngIf="!isLoading()">Login</ng-container>
+      </button>
+    </div>
+  </form>
 </div>
 
-<div class=" border m-auto " style="padding: 1.3em; width: 90vw; border-radius:27px; margin-top: 5vh;  text-align: center;">
-    New to SmartTransport? <span style="color: blue; " ><b ><a routerLink="/register">Create an Account</a></b></span>
+<div class=" border m-auto "
+  style="padding: 1.3em; width: 90vw; border-radius:27px; margin-top: 5vh;  text-align: center;">
+  New to SmartTransport? <span style="color: blue; "><b><a routerLink="/register">Create an Account</a></b></span>
 </div>

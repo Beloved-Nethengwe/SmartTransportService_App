@@ -22,6 +22,7 @@
                                 <th>
                                     <input type="text" value="View Child" readonly/>
                                 </th>
+                                
                             </tr>
                         </thead>
                     </div>
@@ -38,11 +39,11 @@
 
                         <tr class="children-item">
                             <td class="children-content">
-                                <input type="text" [value]="child.Name" readonly/>
+                                {{child.Name}}
                             </td>
-                            <td class="children-content"><input type="text" [value]="child.Destination" readonly/></td>
-                            <td class="children-content"><input type="text" [value]="child.Status" readonly/></td>
-                            <td class="children-content"><input type="text" [value]="child.Allergy" readonly/></td>
+                            <td class="children-content">{{child.Destination}}</td>
+                            <td class="children-content">{{child.Status}}</td>
+                            <td class="children-content">{{child.Allergy}}</td>
                             <td class="children-content">
                                 <div class="actions">
                                     <a [routerLink]="['/children','edit',child.ID]">

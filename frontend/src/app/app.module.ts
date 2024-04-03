@@ -30,6 +30,7 @@ import { MapsComponent } from './components/maps/maps.component';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 import { AddDestinationComponent } from './shared/add-destination/add-destination.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { CommuterComponent } from './components/commuter/commuter.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     MapsComponent,
     AddDestinationComponent,
     ResetPasswordComponent,
+    CommuterComponent,
   ],
   imports: [
     GoogleMapsModule,

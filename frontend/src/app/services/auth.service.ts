@@ -18,8 +18,9 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
+  
   successMessage: string = '';
-  errorMessage: string = '';
+  errorMessage: any = '';
   showSuccess: boolean = false;
   showError: boolean = false;
   isAuthenticated: boolean = false;
@@ -52,7 +53,7 @@ export class AuthService {
     return { name: 'bee', surname: 'gysyfs', age: 11 };
   }
 
-  login(form: LoginForm) {
+  async login(form: LoginForm) {
     if (this.isLoading) return;
 
     this.isLoading = true;
@@ -60,20 +61,18 @@ export class AuthService {
     signInWithEmailAndPassword(auth, form.email, form.password)
       .then((userCredential: Object) => {
         // Signed in
-        console.log('user Object firebase :', userCredential);
-        this.userUuid = userCredential;
-
         const currUser = auth.currentUser;
-        this.uuiForChild = currUser?.uid;
-        console.log(this.uuiForChild);
+        
+        this.userUuid = userCredential;
+        this.uuiForChild = currUser?.uid;;
         this.sessionHelper.setItem('currentUser', this.uuiForChild);
         this.isAuthenticated = true;
+
         this.parentApiService
           .getLoggedInParentRole(this.sessionHelper.getItem('currentUser'))
           .subscribe({
             next: (result: any) => {
-              console.log(result);
-
+              this.showError = false;
               if (result.parent) {
                 this.sessionHelper.setItem(
                   'localUserData',
@@ -83,6 +82,7 @@ export class AuthService {
               }
             },
             error: (err) => {
+              this.showError = false;
               this.driverApiService
                 .getLoggedInDriverRole(
                   this.sessionHelper.getItem('currentUser')
@@ -101,12 +101,15 @@ export class AuthService {
                 });
             },
           });
-        // this.router.navigate(['/home'])
       })
-      .catch((error: string) => {
-        console.log(error);
+      .catch((error: any) => {
+        this.showError = true;
+        console.log();
         
         this.isAuthenticated = false;
+        this.errorMessage = error;
+        
+        return error;
       })
       .finally(() => {
         this.isLoading = false;

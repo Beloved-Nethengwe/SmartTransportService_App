@@ -19,7 +19,7 @@ export class LoginComponent implements AfterViewInit, OnInit  {
   }
 
   ngOnInit(): void {
-    // this.trackingService.getCurrentLocation()
+                    // this.trackingService.getCurrentLocation()
   }
 
   form: LoginForm={
@@ -27,22 +27,10 @@ export class LoginComponent implements AfterViewInit, OnInit  {
     email:''
   }
 
-  submit(){
-    this.authService.login(this.form)
-  }
-
-  checkForUserByEmail(){
-
-      this.errorHandlingService.checkIfEmailExists(this.form.email)
-      .subscribe({
-        next:(respone)=>{
-          if(respone.exists==false){
-            console.log('email does not exist, create an account');
-          }
-          console.log(respone.exists);
-          
-        }
-      })
+  async submit(){
+    const rr = await this.authService.login(this.form);
+    console.log(rr);
+    
   }
   
   isLoading(){
@@ -51,5 +39,13 @@ export class LoginComponent implements AfterViewInit, OnInit  {
 
   navigateToRegister() {
     this.router.navigate(['/register'])
+  }
+
+  showError(){
+    return this.authService.showError;
+  }
+
+  showErrorMessage(){
+    return this.authService.errorMessage = 'Invalid username or password, try again!';
   }
 }
