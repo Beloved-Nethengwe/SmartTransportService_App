@@ -1,0 +1,7 @@
+version: '3'
+name: beloved-fe
+services:
+  web:
+    build : ./
+    ports:
+      - 3001:80

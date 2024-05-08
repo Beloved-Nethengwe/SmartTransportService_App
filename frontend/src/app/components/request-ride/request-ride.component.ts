@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { transportByDestinationDto } from '../../types/Request';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ParentApiService } from '../../services/parent-api.service';
 import { SessionHelper } from '../../helpers/sessionStorage.helper';
 import { SendMailApiService } from '../../services/send-mail-api.service';
@@ -16,6 +16,7 @@ export class RequestRideComponent implements OnInit {
   publicChildName:string='';
   driver$: transportByDestinationDto[] = [];
   constructor(
+    private router:Router,
     private route: ActivatedRoute,
     private parentApiService: ParentApiService,
     private sessionHelper: SessionHelper,
@@ -57,6 +58,7 @@ export class RequestRideComponent implements OnInit {
         next: (response) => {
           console.log('success', response);
           this.isLoading = false;
+          this.router.navigate(['/pending'])
         },
         error: (err) => {
           console.log(err);
